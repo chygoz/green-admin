@@ -24,6 +24,7 @@ import { GreenCardComponent } from './green-card/green-card.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MerchantsComponent } from './merchants/merchants.component';
+import { AuthGuardService } from './auth-guard.service';
 
 
 
@@ -60,7 +61,7 @@ import { MerchantsComponent } from './merchants/merchants.component';
     NgbModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,7 +35,7 @@
                 <mat-menu #menu="matMenu" [overlapTrigger]="false">
                     <span (mouseleave)="menuTrigger.closeMenu()">
                    
-                    <button mat-menu-item >
+                    <button mat-menu-item (click)="logout()">
                         <span>Logout</span>
                     </button>
                     </span>

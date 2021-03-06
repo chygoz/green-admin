@@ -10,12 +10,14 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GreenCardComponent } from './green-card/green-card.component';
 import { MerchantsComponent } from './merchants/merchants.component';
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'dashboard', component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', component: DashboardComponent }
     ]

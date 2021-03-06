@@ -12,7 +12,6 @@ import { CookieService } from '../services/cookie.service';
 export class LoginComponent implements OnInit {
 
   submitted: boolean = false;
-  loginErr = '';
   loginForm: FormGroup;
   public emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   errorMsg = '';
