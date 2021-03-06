@@ -9,6 +9,7 @@ import { OutletsComponent } from './outlets/outlets.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GreenCardComponent } from './green-card/green-card.component';
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: '', component: AnalyticsComponent }
     ]
   },
+
   {
     path: 'customers', component: LayoutComponent,
     children: [

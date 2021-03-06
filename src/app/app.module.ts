@@ -21,7 +21,13 @@ import { OutletsComponent } from './outlets/outlets.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GreenCardComponent } from './green-card/green-card.component';
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MerchantsComponent } from './merchants/merchants.component';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -37,7 +43,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     OutletsComponent,
     SettingsComponent,
     ProfileComponent,
-    GreenCardComponent
+    GreenCardComponent,
+    MerchantsComponent,
+
   ],
   imports: [
     RouterModule,

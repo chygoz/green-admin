@@ -1383,11 +1383,14 @@ dt {
     background-color: #f2f5f9;
 }
 
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 2.25rem;
+}
 .content-page .content {
     padding: 0 30px 1px 30px;
     margin-top: 80px;
-
-    background-color: #f8f8f9;
 }
 .content-body {
     padding: 0 30px 10px 30px;
