@@ -5,6 +5,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { CustomersComponent } from './customers/customers.component';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { OutletsComponent } from './outlets/outlets.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -34,6 +35,12 @@ const routes: Routes = [
     path: 'customers', component: LayoutComponent,
     children: [
       { path: '', component: CustomersComponent }
+    ]
+  },
+  {
+    path: 'customer-details', component: LayoutComponent,
+    children: [
+      { path: '', component: CustomerDetailsComponent }
     ]
   },
 

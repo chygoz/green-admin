@@ -31,6 +31,7 @@ import { MerchantsComponent } from './merchants/merchants.component';
 import { AuthGuardService } from './auth-guard.service';
 import { NewOutletComponent } from './new-outlet/new-outlet.component';
 import { NewMerchantComponent } from './new-merchant/new-merchant.component';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 
 
 
@@ -56,6 +57,7 @@ import { NewMerchantComponent } from './new-merchant/new-merchant.component';
     WithdrawalRequestUserDetailsComponent,
     NewOutletComponent,
     NewMerchantComponent,
+    CustomerDetailsComponent,
 
   ],
   imports: [
