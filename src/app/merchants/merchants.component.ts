@@ -20,8 +20,6 @@ export class MerchantsComponent implements OnInit {
   }
 
   newmarchantDialog() {
-
-
     let dialogRef = this.dialog.open(NewMerchantComponent,
       {
         panelClass: 'my-full-screen-dialog', width: '800px',
