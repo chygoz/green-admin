@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
 .accountbg {
     background: url(./assets/images/Bg.jpg);
     position: absolute;
@@ -10,7 +12,7 @@
 }
 body {
     background-repeat: repeat;
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif !important;
     color: #354558;
     font-size: 13px;
 }
@@ -70,7 +72,7 @@ h4,
 h5,
 h6 {
     margin: 10px 0;
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif !important;
 }
 
 h6 {
@@ -408,25 +410,34 @@ dt {
   Progressbar
 ===================*/
 .progress-bar {
-    background-color: #30419b;
+    background-color: #3ca063;
 }
 
 /* ==============
   Pagination
 ===================*/
 .page-link {
-    color: #30419b;
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    padding: 12px 21px;
+    margin: 0 6px 0 0;
+    border-radius: 4px;
 }
 
 .page-item.active .page-link {
-    background-color: #30419b;
-    border-color: #30419b;
-}
-
-.page-link:focus,
-.page-link:hover {
-    color: #354558;
-    background-color: #f0f4f7;
+    z-index: 3;
+    color: #fff;
+    background-color: #3ca063;
+    border-color: #3ca063;
+    padding: 12px 21px;
+    margin: 0 11px;
+    border-radius: 4px;
 }
 
 /* ==============
@@ -1367,16 +1378,36 @@ dt {
 
 /******* Content Page *******/
 .content-page {
-    margin-left: 240px;
+    margin-left: 197px;
     overflow: hidden;
-    background-color: #f8f8f9;
+    background-color: #f2f5f9;
 }
 
 .content-page .content {
-    padding: 0 15px 10px 15px;
-    margin-top: 70px;
-    margin-bottom: 60px;
+    padding: 0 30px 1px 30px;
+    margin-top: 80px;
+
     background-color: #f8f8f9;
+}
+.content-body {
+    padding: 0 30px 10px 30px;
+    margin-top: 10px;
+
+    background-color: #f8f8f9;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 4px !important;
+    box-shadow: 2px 5px 10px 0 rgba(0, 0, 0, 0.16) !important;
+    background-color: #ffffff !important;
+    border: #fff !important;
 }
 
 /******* Page Title *******/
@@ -3211,6 +3242,13 @@ table.focus-on tbody tr.focused td {
     font-size: 12px;
 }
 
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 7px 0.2px -3px 26px !important;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+    background-color: #ffffff;
+}
+
 @media (max-width: 767px) {
     .email-leftbar {
         float: none;
@@ -3991,9 +4029,3 @@ button.dp-nav-header-btn {
 .dp-selected {
     background: #8a5da2 !important;
 }
-
-/* Importing Bootstrap SCSS file. */
-@import "~bootstrap/scss/bootstrap";
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
