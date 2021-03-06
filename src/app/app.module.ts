@@ -24,7 +24,12 @@ import { GreenCardComponent } from './green-card/green-card.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MerchantsComponent } from './merchants/merchants.component';
+<<<<<<< Updated upstream
 import { AuthGuardService } from './auth-guard.service';
+=======
+import { WithdrawalRequestComponent } from './withdrawal-request/withdrawal-request.component';
+import { WithdrawalRequestUserDetailsComponent } from './withdrawal-request-user-details/withdrawal-request-user-details.component';
+>>>>>>> Stashed changes
 
 
 
@@ -46,6 +51,8 @@ import { AuthGuardService } from './auth-guard.service';
     ProfileComponent,
     GreenCardComponent,
     MerchantsComponent,
+    WithdrawalRequestComponent,
+    WithdrawalRequestUserDetailsComponent,
 
   ],
   imports: [

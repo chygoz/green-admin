@@ -1,0 +1,109 @@
+.header1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+.header2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.header3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #07555c;
+    border: #07555c;
+}
+.btn-secondary {
+    background-color: #3ca063;
+    border: #3ca063;
+}
+
+.btn-outline-primary {
+    color: #6c6c6c;
+    border: 1px solid #838383;
+    padding: 11px 27px;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn-outline-primary:not([disabled]):not(.disabled):active {
+    background-color: #fff;
+    color: #6c6c6c;
+}
+
+.table thead th {
+    color: #9d9d9d;
+}
+
+.btn-primary1 {
+    background-color: #b0e2c4;
+    border: #b0e2c4;
+    color: #3ca063;
+
+    border-radius: 23px;
+    font-weight: 600;
+    padding: 4px 20px;
+    font-size: 13px;
+}
+
+.btn-primary1:hover,
+.btn-primary1:active,
+.btn-primary1:focus,
+.btn-primary1:not([disabled]):not(.disabled):active {
+    background-color: #b0e2c4;
+    border: #b0e2c4;
+    color: #3ca063;
+    border-radius: 23px;
+    font-weight: 600;
+    padding: 4px 20px;
+    font-size: 13px;
+}
+.btn-outline-warning1 {
+    background-color: #fff;
+    border: 1px solid #fd9405;
+    color: #fd9405;
+
+    border-radius: 23px;
+    font-weight: 600;
+    padding: 4px 20px;
+    font-size: 13px;
+}
+
+.btn-outline-warning1:hover,
+.btn-outline-warning1:active,
+.btn-outline-warning1:focus,
+.btn-outline-warning1:not([disabled]):not(.disabled):active {
+    background-color: #fff;
+    border: 1px solid #fd9405;
+    color: #fd9405;
+    border-radius: 23px;
+    font-weight: 600;
+    padding: 4px 20px;
+    font-size: 13px;
+}
+.btn-outline-danger {
+    background-color: #ff3636;
+    border: 1px solid #ff3636;
+    color: #fff;
+
+    border-radius: 23px;
+    font-weight: 600;
+    padding: 4px 20px;
+    font-size: 13px;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-danger:active,
+.btn-outline-danger:focus,
+.btn-outline-danger:not([disabled]):not(.disabled):active {
+    background-color: #ff3636;
+    border: 1px solid #ff3636;
+    color: #fff;
+    border-radius: 23px;
+    font-weight: 600;
+    padding: 4px 20px;
+    font-size: 13px;
+}
