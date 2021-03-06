@@ -10,11 +10,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GreenCardComponent } from './green-card/green-card.component';
 import { MerchantsComponent } from './merchants/merchants.component';
-<<<<<<< Updated upstream
-import { AuthGuardService as AuthGuard } from './auth-guard.service';
-=======
 import { WithdrawalRequestComponent } from './withdrawal-request/withdrawal-request.component';
->>>>>>> Stashed changes
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },

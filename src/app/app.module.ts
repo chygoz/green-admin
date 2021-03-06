@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './layout/layout.component';
@@ -21,15 +22,15 @@ import { OutletsComponent } from './outlets/outlets.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GreenCardComponent } from './green-card/green-card.component';
+import { WithdrawalRequestComponent } from './withdrawal-request/withdrawal-request.component';
+import { WithdrawalRequestUserDetailsComponent } from './withdrawal-request-user-details/withdrawal-request-user-details.component';
+
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MerchantsComponent } from './merchants/merchants.component';
-<<<<<<< Updated upstream
 import { AuthGuardService } from './auth-guard.service';
-=======
-import { WithdrawalRequestComponent } from './withdrawal-request/withdrawal-request.component';
-import { WithdrawalRequestUserDetailsComponent } from './withdrawal-request-user-details/withdrawal-request-user-details.component';
->>>>>>> Stashed changes
+import { NewOutletComponent } from './new-outlet/new-outlet.component';
+import { NewMerchantComponent } from './new-merchant/new-merchant.component';
 
 
 
@@ -53,6 +54,8 @@ import { WithdrawalRequestUserDetailsComponent } from './withdrawal-request-user
     MerchantsComponent,
     WithdrawalRequestComponent,
     WithdrawalRequestUserDetailsComponent,
+    NewOutletComponent,
+    NewMerchantComponent,
 
   ],
   imports: [
@@ -63,6 +66,7 @@ import { WithdrawalRequestUserDetailsComponent } from './withdrawal-request-user
     AppRoutingModule,
     MatMenuModule,
     MatSelectModule,
+    MatDialogModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     NgbModule,
