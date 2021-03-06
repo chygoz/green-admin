@@ -11,7 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { GreenCardComponent } from './green-card/green-card.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
-
+  { path: 'login', component: LoginComponent },
   {
     path: 'dashboard', component: LayoutComponent,
     children: [
