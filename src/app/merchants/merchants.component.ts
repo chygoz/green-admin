@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NewMerchantComponent } from '../new-merchant/new-merchant.component';
 import { NewOutletComponent } from '../new-outlet/new-outlet.component';
 import { CookieService } from '../services/cookie.service';
+import { apiService } from '../api.service';
 @Component({
   selector: 'app-merchants',
   templateUrl: './merchants.component.html',
@@ -13,13 +14,26 @@ import { CookieService } from '../services/cookie.service';
 })
 export class MerchantsComponent implements OnInit {
   userData;
-  constructor(location: Location, public dialog: MatDialog, private router: Router, private cookieService: CookieService) {
+  merchants = [];
+  constructor(location: Location, public dialog: MatDialog, private router: Router, 
+    private cookieService: CookieService, private service: apiService) {
     this.userData = this.cookieService.getCookie('currentUser');
     this.userData = JSON.parse(this.userData);
     console.log(this.userData);
    }
 
   ngOnInit(): void {
+    this.getMerchants();
+  }
+
+  getMerchants(){
+    this.service.getMerchants({}).subscribe((resp) => {
+      if(resp.status){
+        this.merchants = resp.data;
+        console.log(this.merchants);
+      }
+
+    })
   }
 
   newmarchantDialog() {
