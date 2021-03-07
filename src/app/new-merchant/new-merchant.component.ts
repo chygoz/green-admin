@@ -50,10 +50,19 @@ export class NewMerchantComponent implements OnInit {
 
   onSubmit(){
     this.formSubmit = true;
-    console.log(this.merchantForm.valid);
-    // if(!this.formSubmit.valid){
-    //   return false;
-    // }
+    this.service.showError("this is error")
+    if(!this.merchantForm.valid){
+      return false;
+    }
+
+    this.service.createMerchant(this.merchantForm.value).subscribe((resp) => {
+      if(resp.status){
+        this.service.showSuccess(resp.msg);
+      }else {
+        this.service.showError(resp.msg);
+      }
+    })
+
     console.log(this.merchantForm.value);
   }
 

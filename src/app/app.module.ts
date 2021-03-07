@@ -33,6 +33,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { NewOutletComponent } from './new-outlet/new-outlet.component';
 import { NewMerchantComponent } from './new-merchant/new-merchant.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -74,7 +75,8 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
     BrowserAnimationsModule,
     NgbModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]
