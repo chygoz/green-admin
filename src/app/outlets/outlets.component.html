@@ -1,1 +1,180 @@
-<p>outlets works!</p>
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="header1">Outlets</h2>
+            </div>
+            <div class="col-6" style="text-align: right;">
+                <button type="button"  class="btn btn-primary mr-4" 
+                (click)="newouletDialog()"><i class="fa fa-plus"></i>
+                    Add New Outlet</button>
+              
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4">
+
+                    </div>
+                    <div class="col-8" style="text-align: right;">
+                        <div class="row" style="text-align: right;">
+
+                            <div class="col-4">
+                                <button type="button" class="btn btn-outline-primary">Sort By &nbsp;&nbsp;&nbsp;
+                                    <img src="assets/images/sort-down.svg" alt="user" width="20"></button>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Store</mat-label>
+                                    <mat-select>
+                                        <mat-option value="one">Store 1</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Outlet</mat-label>
+                                    <mat-select>
+                                        <mat-option value="one">Outlet 1</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Merchant name</th>
+                                    <th scope="col">Records</th>
+                                    <th scope="col">No. Of Outlets</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">SPAR</th>
+                                    <td>37 </td>
+                                    <td>4</td>
+                                    <td>450 Providence Rd, Brooklyn,
+                                        United States</td>
+                                    <td>
+                                        <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="menu"
+                                            #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()"
+                                            id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false" style="outline: none;font-size: 12px;color: #000  ;">
+                                            <img src="assets/images/doted.svg" alt="user" width="20">
+                                        </a>
+                                        <mat-menu #menu="matMenu" [overlapTrigger]="false">
+                                            <span (mouseleave)="menuTrigger.closeMenu()">
+
+                                                <button mat-menu-item>
+                                                    <span> <i class="fa fa-ban"></i> &nbsp; &nbsp; &nbsp;Block</span>
+                                                </button>
+                                                <button mat-menu-item>
+                                                    <span><i class="fa fa-flag"></i> &nbsp; &nbsp; &nbsp;Report</span>
+                                                </button>
+                                                <button mat-menu-item>
+                                                    <span> <i class="fa fa-trash"></i> &nbsp; &nbsp; &nbsp;
+                                                        Delete</span>
+                                                </button>
+                                            </span>
+                                        </mat-menu>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">SPAR</th>
+                                    <td>37 </td>
+                                    <td>4</td>
+                                    <td>450 Providence Rd, Brooklyn,
+                                        United States</td>
+                                    <td>
+                                        <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="menu1"
+                                            #menuTrigger1="matMenuTrigger" (mouseover)="menuTrigger1.openMenu()"
+                                            id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false" style="outline: none;font-size: 12px;color: #000  ;">
+                                            <img src="assets/images/doted.svg" alt="user" width="20">
+                                        </a>
+                                        <mat-menu #menu1="matMenu" [overlapTrigger]="false">
+                                            <span (mouseleave)="menuTrigger1.closeMenu()">
+
+                                                <button mat-menu-item>
+                                                    <span> <i class="fa fa-ban"></i> &nbsp; &nbsp; &nbsp;Block</span>
+                                                </button>
+                                                <button mat-menu-item>
+                                                    <span><i class="fa fa-flag"></i> &nbsp; &nbsp; &nbsp;Report</span>
+                                                </button>
+                                                <button mat-menu-item>
+                                                    <span> <i class="fa fa-trash"></i> &nbsp; &nbsp; &nbsp;
+                                                        Delete</span>
+                                                </button>
+                                            </span>
+                                        </mat-menu>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">SPAR</th>
+                                    <td>37 </td>
+                                    <td>4</td>
+                                    <td>450 Providence Rd, Brooklyn,
+                                        United States</td>
+                                    <td>
+                                        <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="menu1"
+                                            #menuTrigger2="matMenuTrigger" (mouseover)="menuTrigger2.openMenu()"
+                                            id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false" style="outline: none;font-size: 12px;color: #000  ;">
+                                            <img src="assets/images/doted.svg" alt="user" width="20">
+                                        </a>
+                                        <mat-menu #menu2="matMenu" [overlapTrigger]="false">
+                                            <span (mouseleave)="menuTrigger2.closeMenu()">
+
+                                                <button mat-menu-item>
+                                                    <span> <i class="fa fa-ban"></i> &nbsp; &nbsp; &nbsp;Block</span>
+                                                </button>
+                                                <button mat-menu-item>
+                                                    <span><i class="fa fa-flag"></i> &nbsp; &nbsp; &nbsp;Report</span>
+                                                </button>
+                                                <button mat-menu-item>
+                                                    <span> <i class="fa fa-trash"></i> &nbsp; &nbsp; &nbsp;
+                                                        Delete</span>
+                                                </button>
+                                            </span>
+                                        </mat-menu>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-body">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination" style="float:right;">
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

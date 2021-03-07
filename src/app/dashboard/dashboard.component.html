@@ -12,11 +12,12 @@
     <div class="row">
         <div class="col-8">
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="card">
-                    <div class="card-body" style=" padding: 1em;">
+                    <div class="card-body" style=" padding: 2em 1em;">
                         <div class="row">
-                            <div class="col-md-3 col-sm-3 ml-3" style="background-color: #3ca0634f;padding-top: 13px; border-radius: 5px;">
+                            <div class="col-md-3 col-sm-3 ml-3" 
+                            style="background-color: #3ca0634f;padding-top: 13px; border-radius: 5px;text-align: center;">
                                     <img src="assets/images/up-arrow.svg" 
                                     alt="user" width="20"  >
                             </div>
@@ -29,11 +30,12 @@
                     </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="card">
-                    <div class="card-body" style=" padding: 1em;">
+                     <div class="card-body" style=" padding: 2em 1em;">
                         <div class="row">
-                            <div class="col-md-3 col-sm-3 ml-3" style="background-color: #ff363663;padding-top: 13px; border-radius: 5px;">
+                            <div class="col-md-3 col-sm-3 ml-3"
+                             style="background-color: #ff363663;padding-top: 13px; border-radius: 5px;text-align: center;">
                                     <img src="assets/images/download-arrow.svg" 
                                     alt="user" width="20"  >
                             </div>
@@ -46,11 +48,12 @@
                     </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="card">
-                    <div class="card-body" style=" padding: 1em;">
+                    <div class="card-body" style=" padding: 2em 1em;">
                         <div class="row">
-                            <div class="col-md-3 col-sm-3 ml-3" style="background-color: #3ca0634f;padding-top: 13px; border-radius: 5px;">
+                            <div class="col-md-3 col-sm-3 ml-3"
+                             style="background-color: #3ca0634f;padding-top: 13px; border-radius: 5px;text-align: center;">
                                     <img src="assets/images/up-arrow.svg" 
                                     alt="user" width="20"  >
                             </div>
@@ -67,7 +70,18 @@
           </div>
         </div>
         <div class="col-4">
+               <div class="row">
+                    <div class="col-sm-12">
+                        <div style="display: block;">
+                            <canvas baseChart 
+                                [data]="doughnutChartData"
+                                [labels]="doughnutChartLabels"
+                                [chartType]="doughnutChartType">
+                            </canvas>
+                        </div>
 
+                    </div>
+                </div>
         </div>
 
     </div>
