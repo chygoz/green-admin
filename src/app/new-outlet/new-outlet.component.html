@@ -4,42 +4,73 @@
          <div class="col-12">
         <h1 class="header1">New Outlet Set Up</h1>
             <div class="default-padding">
+                <form [formGroup]="outletForm" (ngSubmit)="onSubmit()">
                     <div class="form-row m-0">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">Choose Store</label>
-                            <input type="name" class="form-control" id="inputEmail4" placeholder="Choose Store">
+                            <label for="inputEmail4">Store Name</label>
+                            <input type="name" class="form-control" formControlName="storeName"
+                                placeholder="Store Name">
+                                <div class="inputError" *ngIf="f.storeName.errors?.required && formSubmit">
+                                    Email Required!
+                                </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                            <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                            <div class="inputError" *ngIf="f.email.errors?.required && formSubmit">
+                                Email Required!
+                            </div>
+                            <div class="inputError" *ngIf="f.email.errors?.pattern && formSubmit">
+                                Email Invalid!
+                            </div>
                         </div>
                     </div>
-                     <div class="form-row m-0">
+                    <div class="form-row m-0">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Phone Number</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="Phone Number">
+                            <input type="text" class="form-control" formControlName="phoneNumber"
+                                placeholder="Phone Number">
+                                <div class="inputError" *ngIf="f.phoneNumber.errors?.required && formSubmit">
+                                    Phone Number Required!
+                                </div>
                         </div>
                     </div>
                     <div style="clear: both;"></div>
-                      <div class="form-row m-0">
+                    <div class="form-row m-0">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">User name</label>
-                            <input type="text" class="form-control" id="inputEmail4" placeholder="USer Name">
+                            <input type="text" class="form-control" formControlName="userName"
+                                placeholder="Username">
+                                <div class="inputError" *ngIf="f.userName.errors?.required && formSubmit">
+                                    Username Required!
+                                </div>
                         </div>
                     </div>
-                <div class="form-row m-0">
+                    <div class="form-row m-0">
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                            <input type="password" class="form-control" formControlName="password"
+                                placeholder="Password">
+                                <div class="inputError" *ngIf="f.password.errors?.required && formSubmit">
+                                    Password Required!
+                                </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Confirm Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                            <input type="password" class="form-control" formControlName="confirmPassword"
+                                placeholder="Password">
+                                <div class="inputError" *ngIf="f.confirmPassword.errors?.required && formSubmit">
+                                    Confirm Password Required!
+                                </div>
+                                <div class="inputError" *ngIf="f.confirmPassword.errors?.confirmedValidator && formSubmit">
+                                    Password doesn't match!
+                                </div>
+                                
                         </div>
-                </div>
-                   <button type="button" class="btn btn-primary mr-2">Save</button>
-                    <button type="button" class="btn btn-default" mat-dialog-close >Cancel </button>
-               
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Save</button>
+                    <button type="button" class="btn btn-default" mat-dialog-close>Cancel </button>
+                </form>
            </div>
 
          </div>

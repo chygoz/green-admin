@@ -28,6 +28,14 @@ import { ToastrService } from 'ngx-toastr';
       return this.http.post(config.api_url+'admin/addMerchant', params, {headers});
     }
 
+    createOutlet(params): Observable<any> {
+      let token = this.cookieService.getCookie('token');
+      let headers = new HttpHeaders();
+        headers = headers.append('token', token);
+        headers = headers.append('Content-Type',  'application/json');
+      return this.http.post(config.api_url+'admin/addOutlet', params, {headers});
+    }
+
     getMerchants(params): Observable<any> {
       let token = this.cookieService.getCookie('token');
       let headers = new HttpHeaders();
