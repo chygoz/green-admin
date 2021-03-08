@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
-@import '~ngx-toastr/toastr.css';
+@import "~ngx-toastr/toastr.css";
 .accountbg {
     background: url(./assets/images/Bg.jpg);
     position: absolute;
@@ -849,7 +849,7 @@ dt {
     text-align: center;
     height: 70px;
     position: relative;
-    width: 197px;
+    width: 240px;
     z-index: 1;
 }
 
@@ -1037,7 +1037,7 @@ dt {
 
 /******* Sidemenu *******/
 .side-menu {
-    width: 197px;
+    width: 240px;
     z-index: 10;
     background: #07555c;
     bottom: 0;
@@ -1061,7 +1061,7 @@ dt {
 }
 
 #sidebar-menu > ul > li > a {
-    color: #bca2c9;
+    color: #fff;
     display: block;
     padding: 13px 20px;
     font-size: 14px;
@@ -1379,7 +1379,7 @@ dt {
 
 /******* Content Page *******/
 .content-page {
-    margin-left: 197px;
+    margin-left: 240px;
     overflow: hidden;
     background-color: #f2f5f9;
 }
