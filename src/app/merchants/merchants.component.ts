@@ -44,6 +44,7 @@ export class MerchantsComponent implements OnInit {
       });
 
     dialogRef.afterClosed().subscribe(() => {
+      this.getMerchants();
     })
 
   }
