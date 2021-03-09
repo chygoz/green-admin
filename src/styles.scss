@@ -1297,6 +1297,11 @@ dt {
     font-family: "Poppins", sans-serif;
 }
 
+.table thead tr th {
+    color: #9d9d9d !important;
+    font-weight: 400;
+}
+
 /******* Responsive *******/
 @media (min-width: 769px) {
     .enlarged {
@@ -2067,9 +2072,21 @@ button:focus {
 }
 
 /* button Outline */
-.btn-outline-primary {
+.btn-outline-primary,
+.btn-outline-primary:hover,
+.btn-outline-primary:active {
     color: #30419b;
     border-color: #30419b;
+    background-color: #fff;
+}
+
+.btn-outline-primary:not(:disabled):not(:disabled):active {
+    color: #30419b;
+    border-color: #30419b;
+    background-color: #fff;
+}
+.btn-outline-primary:outline {
+    border: #fff;
 }
 
 .btn-outline-success {
