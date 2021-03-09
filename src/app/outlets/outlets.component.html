@@ -6,10 +6,9 @@
                 <h2 class="header1">Outlets</h2>
             </div>
             <div class="col-6" style="text-align: right;">
-                <button type="button"  class="btn btn-primary mr-4" 
-                (click)="newouletDialog()"><i class="fa fa-plus"></i>
+                <button type="button" class="btn btn-primary mr-4" (click)="newouletDialog()"><i class="fa fa-plus"></i>
                     Add New Outlet</button>
-              
+
             </div>
         </div>
     </div>
@@ -18,7 +17,6 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-4">
-
                     </div>
                     <div class="col-8" style="text-align: right;">
                         <div class="row" style="text-align: right;">
@@ -51,20 +49,19 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Merchant name</th>
-                                    <th scope="col">Records</th>
-                                    <th scope="col">No. Of Outlets</th>
-                                    <th scope="col">Address</th>
+                                    <th scope="col">Outlet name</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone Number</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">SPAR</th>
-                                    <td>37 </td>
-                                    <td>4</td>
-                                    <td>450 Providence Rd, Brooklyn,
-                                        United States</td>
+                                <tr *ngFor="let outlet of outlets">
+                                    <th scope="row">{{outlet?.storeName}}</th>
+                                    <td>{{outlet?.userName}}</td>
+                                    <td>{{outlet?.email}}</td>
+                                    <td>{{outlet?.phoneNumber}}</td>
                                     <td>
                                         <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="menu"
                                             #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()"
@@ -81,7 +78,7 @@
                                                 <button mat-menu-item>
                                                     <span><i class="fa fa-flag"></i> &nbsp; &nbsp; &nbsp;Report</span>
                                                 </button>
-                                                <button mat-menu-item>
+                                                <button mat-menu-item (click)="deleteOutlet(outlet?._id)">
                                                     <span> <i class="fa fa-trash"></i> &nbsp; &nbsp; &nbsp;
                                                         Delete</span>
                                                 </button>
@@ -89,67 +86,6 @@
                                         </mat-menu>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">SPAR</th>
-                                    <td>37 </td>
-                                    <td>4</td>
-                                    <td>450 Providence Rd, Brooklyn,
-                                        United States</td>
-                                    <td>
-                                        <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="menu1"
-                                            #menuTrigger1="matMenuTrigger" (mouseover)="menuTrigger1.openMenu()"
-                                            id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false" style="outline: none;font-size: 12px;color: #000  ;">
-                                            <img src="assets/images/doted.svg" alt="user" width="20">
-                                        </a>
-                                        <mat-menu #menu1="matMenu" [overlapTrigger]="false">
-                                            <span (mouseleave)="menuTrigger1.closeMenu()">
-
-                                                <button mat-menu-item>
-                                                    <span> <i class="fa fa-ban"></i> &nbsp; &nbsp; &nbsp;Block</span>
-                                                </button>
-                                                <button mat-menu-item>
-                                                    <span><i class="fa fa-flag"></i> &nbsp; &nbsp; &nbsp;Report</span>
-                                                </button>
-                                                <button mat-menu-item>
-                                                    <span> <i class="fa fa-trash"></i> &nbsp; &nbsp; &nbsp;
-                                                        Delete</span>
-                                                </button>
-                                            </span>
-                                        </mat-menu>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">SPAR</th>
-                                    <td>37 </td>
-                                    <td>4</td>
-                                    <td>450 Providence Rd, Brooklyn,
-                                        United States</td>
-                                    <td>
-                                        <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="menu1"
-                                            #menuTrigger2="matMenuTrigger" (mouseover)="menuTrigger2.openMenu()"
-                                            id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false" style="outline: none;font-size: 12px;color: #000  ;">
-                                            <img src="assets/images/doted.svg" alt="user" width="20">
-                                        </a>
-                                        <mat-menu #menu2="matMenu" [overlapTrigger]="false">
-                                            <span (mouseleave)="menuTrigger2.closeMenu()">
-
-                                                <button mat-menu-item>
-                                                    <span> <i class="fa fa-ban"></i> &nbsp; &nbsp; &nbsp;Block</span>
-                                                </button>
-                                                <button mat-menu-item>
-                                                    <span><i class="fa fa-flag"></i> &nbsp; &nbsp; &nbsp;Report</span>
-                                                </button>
-                                                <button mat-menu-item>
-                                                    <span> <i class="fa fa-trash"></i> &nbsp; &nbsp; &nbsp;
-                                                        Delete</span>
-                                                </button>
-                                            </span>
-                                        </mat-menu>
-                                    </td>
-                                </tr>
-
 
                             </tbody>
                         </table>
