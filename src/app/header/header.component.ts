@@ -8,8 +8,12 @@ import { CookieService } from '../services/cookie.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private router: Router, private cookieService: CookieService) { }
+  userData;
+  constructor(private router: Router, private cookieService: CookieService) {
+    this.userData = this.cookieService.getCookie('currentUser');
+    this.userData = JSON.parse(this.userData);
+    console.log(this.userData);
+   }
 
   ngOnInit(): void {
   }
