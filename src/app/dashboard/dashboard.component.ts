@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from "chart.js";
 import { MultiDataSet, Label, Color } from "ng2-charts";
+import { apiService } from '../api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -67,10 +68,20 @@ export class DashboardComponent implements OnInit {
     { backgroundColor: '#07555c' },
     { backgroundColor: '#07555cc2' },
   ]
+  stats: any;
 
-  constructor() { }
+  constructor(private service: apiService) { }
 
   ngOnInit(): void {
+    this.getStats()
+  }
+
+  getStats(){
+    this.service.getStats({}).subscribe((resp) => {
+      if(resp.status && resp.data[0]){
+        this.stats = resp.data[0];
+      }
+    })
   }
 
 }
