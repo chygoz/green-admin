@@ -7,26 +7,26 @@
       <!-- Left Menu Start -->
       <ul class="metismenu" id="side-menu">
         <li class="menu-title">Menus</li>
-        <li>
+        <li *ngIf="userData?.role == 'superAdmin'">
           <a routerLink="/dashboard" routerLinkActive="mm-active" class="waves-effect">
 
             <img src="assets/images/menu/dashboard.svg" height="25">
             <span> Dashboard </span>
           </a>
         </li>
-        <li>
+        <li *ngIf="userData?.role == 'superAdmin' || userData?.role == 'merchant'">
           <a routerLink="/analytics" routerLinkActive="mm-active" class="waves-effect">
             <img src="assets/images/menu/analytics.svg" height="25">
             <span> Analytics </span>
           </a>
         </li>
-        <li>
+        <li *ngIf="userData?.role == 'superAdmin'">
           <a routerLink="/customers" routerLinkActive="mm-active" class="waves-effect">
             <img src="assets/images/menu/user.svg" height="25">
             <span> Customers </span>
           </a>
         </li>
-        <li>
+        <li *ngIf="userData?.role == 'superAdmin'">
           <a routerLink="/customer-details" routerLinkActive="mm-active" class="waves-effect">
             <img src="assets/images/menu/user1.svg" height="25">
             <span> Customer Details</span>
@@ -44,13 +44,13 @@
             <span> Outlets </span>
           </a>
         </li>
-        <li>
+        <li *ngIf="userData?.role == 'superAdmin'">
           <a routerLink="/withdrawal-request" routerLinkActive="mm-active" class="waves-effect">
             <img src="assets/images/menu/atm.svg" height="25">
             <span> Withdrawal Request </span>
           </a>
         </li>
-        <li>
+        <li *ngIf="userData?.role == 'superAdmin'">
           <a routerLink="/settings" routerLinkActive="mm-active" class="waves-effect">
             <img src="assets/images/menu/settings.svg" height="25">
             <span> Settings </span>
@@ -62,7 +62,7 @@
             <span> Profile </span>
           </a>
         </li>
-        <li>
+        <li *ngIf="userData?.role == 'merchant' || userData?.role == 'outlet'">
           <a routerLink="/green-card" routerLinkActive="mm-active" class="waves-effect">
             <img src="assets/images/menu/card.svg" height="25">
             <span> Green Card </span>
