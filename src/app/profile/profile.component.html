@@ -25,61 +25,70 @@
                      <div class="form-row m-0">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">First Name</label>
-                                <input type="name" class="form-control" placeholder="" formControlName="firstName">
+                                <input type="text" class="form-control" autocomplete="new-password" placeholder="" formControlName="firstName">
+                                <div class="inputError" *ngIf="f.firstName.errors?.required && formSubmit">
+                                    First Name Required!
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Last name</label>
-                                <input type="email" class="form-control" placeholder="" formControlName="lastName">
+                                <input type="text" class="form-control" autocomplete="new-password" placeholder="" formControlName="lastName">
+                                <div class="inputError" *ngIf="f.lastName.errors?.required && formSubmit">
+                                    Last Name Required!
+                                </div>
                             </div>
                         </div>
                          <div class="form-row m-0">
                             <div class="form-group col-md-12">
                                 <label for="inputEmail4">Email</label>
-                                <input type="text" class="form-control" placeholder="" formControlName="email">
+                                <input type="text" class="form-control" autocomplete="new-password" placeholder="" formControlName="email">
+                                <div class="inputError" *ngIf="f.email.errors?.required && formSubmit">
+                                    Email Required!
+                                </div>
+                                <div class="inputError" *ngIf="f.email.errors?.pattern && formSubmit">
+                                    Email Invalid!
+                                </div>
                             </div>
                         </div>
                          <div class="form-row m-0">
                             <div class="form-group col-md-12">
                                 <label for="inputEmail4">Phone Number</label>
-                                <input type="text" class="form-control" placeholder="" formControlName="phoneNumber">
+                                <input type="text" class="form-control" autocomplete="new-password" placeholder="" formControlName="phoneNumber">
+                                <div class="inputError" *ngIf="f.phoneNumber.errors?.required && formSubmit">
+                                    Phone Number Required!
+                                </div>
                             </div>
                         </div>
-                         <!-- <div class="form-row m-0">
-                            <div class="form-group col-md-12">
-                                <label for="inputEmail4">Address</label>
-                                <input type="text" class="form-control" placeholder="" >
-                            </div>
-                        </div> -->
 
                          <div class="form-row m-0">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">City</label>
-                                <input type="name" class="form-control" placeholder="" formControlName="city">
+                                <input type="name" class="form-control" autocomplete="new-password" placeholder="" formControlName="city">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">State</label>
-                                <input type="email" class="form-control" placeholder="" formControlName="state">
+                                <input type="email" class="form-control" autocomplete="new-password" placeholder="" formControlName="state">
                             </div>
                         </div>
                         <div class="form-row m-0">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Zip Code</label>
-                                <input type="name" class="form-control" placeholder="" formControlName="zipCode">
+                                <input type="name" class="form-control" autocomplete="new-password" placeholder="" formControlName="zipCode">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Country</label>
-                                <input type="email" class="form-control" placeholder="" formControlName="country">
+                                <input type="email" class="form-control" autocomplete="new-password" placeholder="" formControlName="country">
                             </div>
                         </div>
                          <div class="form-row m-0">
                             <div class="form-group col-md-12">
                                 <label for="inputEmail4">Address</label>
-                                <input type="text" class="form-control" formControlName="address">
+                                <input type="text" class="form-control" autocomplete="new-password" formControlName="address">
                             </div>
                         </div>
 
                     <div class="form-row m-0">
-                            <button type="button" [disabled]="profileForm.invalid" class="btn btn-primary mr-2">Save</button>
+                            <button type="submit" class="btn btn-primary mr-2">Save</button>
                             <button type="button" class="btn btn-default" mat-dialog-close >Cancel </button>
                     </div>
                   </div>   
