@@ -5,7 +5,7 @@
                 <h1 class="header1">New Merchant Set Up</h1>
                 <div class="default-padding">
                     <form [formGroup]="merchantForm" (ngSubmit)="onSubmit()">
-                        <div class="form-row m-0">
+                        <div class="form-row m-0 pt-3">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Store Name</label>
                                 <input type="name" class="form-control" formControlName="storeName"
@@ -68,8 +68,10 @@
                                     
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mr-2">Save</button>
-                        <button type="button" class="btn btn-default" mat-dialog-close>Cancel </button>
+                         <div class="form-group col-md-6 p-0 pt-3">
+                            <button type="submit" class="btn btn-primary mr-2">Save</button>
+                            <button type="button" class="btn btn-default" mat-dialog-close>Cancel </button>
+                        </div>
                     </form>
 
                 </div>

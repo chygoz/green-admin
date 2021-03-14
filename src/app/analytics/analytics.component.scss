@@ -11,3 +11,12 @@
     font-size: 18px;
     font-weight: 500;
 }
+
+.page-link:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.mat-form-field {
+    display: block;
+}

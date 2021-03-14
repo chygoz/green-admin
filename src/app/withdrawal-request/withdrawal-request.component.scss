@@ -21,10 +21,14 @@
     border: #3ca063;
 }
 
+.mat-form-field {
+    display: block;
+}
+
 .btn-outline-primary {
     color: #6c6c6c;
     border: 1px solid #838383;
-    padding: 11px 27px;
+    padding: 7px 27px;
 }
 .btn-outline-primary:hover,
 .btn-outline-primary:active,
@@ -42,11 +46,10 @@
     background-color: #b0e2c4;
     border: #b0e2c4;
     color: #3ca063;
-
     border-radius: 23px;
-    font-weight: 600;
+    font-weight: 400;
     padding: 4px 20px;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .btn-primary1:hover,
@@ -57,9 +60,9 @@
     border: #b0e2c4;
     color: #3ca063;
     border-radius: 23px;
-    font-weight: 600;
+    font-weight: 400;
     padding: 4px 20px;
-    font-size: 13px;
+    font-size: 12px;
 }
 .btn-outline-warning1 {
     background-color: #fff;
@@ -67,9 +70,9 @@
     color: #fd9405;
 
     border-radius: 23px;
-    font-weight: 600;
+    font-weight: 400;
     padding: 4px 20px;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .btn-outline-warning1:hover,
@@ -80,9 +83,9 @@
     border: 1px solid #fd9405;
     color: #fd9405;
     border-radius: 23px;
-    font-weight: 600;
+    font-weight: 500;
     padding: 4px 20px;
-    font-size: 13px;
+    font-size: 12px;
 }
 .btn-outline-danger {
     background-color: #ff3636;
@@ -90,9 +93,9 @@
     color: #fff;
 
     border-radius: 23px;
-    font-weight: 600;
+    font-weight: 400;
     padding: 4px 20px;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .btn-outline-danger:hover,
@@ -103,7 +106,20 @@
     border: 1px solid #ff3636;
     color: #fff;
     border-radius: 23px;
-    font-weight: 600;
+    font-weight: 400;
     padding: 4px 20px;
-    font-size: 13px;
+    font-size: 12px;
+}
+
+.mat-form-field {
+    display: block;
+}
+
+.btn-primary1:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+.page-link:focus {
+    outline: none !important;
+    box-shadow: none;
 }
