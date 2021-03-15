@@ -46,8 +46,7 @@
                     <h5><a href="#" class="profile-link">Local Card</a></h5>
                   </div>
                   <div class="col-md-4 col-sm-7">
-                    <button type="button" class="btn btn-primary" style="border-radius: 2px;
-    padding: 9px 33px;">Grant Discount</button>
+                    <button type="button" class="btn btn-primary grantBtn" (click)="grandDiscount(userData)" >Grant Discount</button>
                   </div>
                 </div>
               </div>
@@ -64,58 +63,24 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12">
-            <h2 class="header2">Selected Records - <span style="color:#07555c">320</span></h2>
+            <h2 class="header2">Selected Records - <span style="color:#07555c">{{records.length}}</span></h2>
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">User name</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">User ID</th>
                   <th scope="col">Card Type</th>
                   <th scope="col">Location</th>
                   <th scope="col">Time Stamp</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">Grabriel Samuel</th>
-                  <td>Local </td>
+                <tr *ngFor="let record of records">
+                  <th scope="row">{{record?.firstName}} {{record?.lastName}}</th>
+                  <th scope="row">{{record?.userId}}</th>
+                  <td>{{record?.card_type}} </td>
                   <td>London</td>
-                  <td>12/02/2021 | 12:23 PM</td>
-                </tr>
-                <tr>
-                  <th scope="row">Grabriel Samuel</th>
-                  <td>Local </td>
-                  <td>London</td>
-                  <td>12/02/2021 | 12:23 PM</td>
-                </tr>
-                <tr>
-                  <th scope="row">Grabriel Samuel</th>
-                  <td>Local </td>
-                  <td>London</td>
-                  <td>12/02/2021 | 12:23 PM</td>
-                </tr>
-                <tr>
-                  <th scope="row">Grabriel Samuel</th>
-                  <td>Local </td>
-                  <td>London</td>
-                  <td>12/02/2021 | 12:23 PM</td>
-                </tr>
-                <tr>
-                  <th scope="row">Grabriel Samuel</th>
-                  <td>Local </td>
-                  <td>London</td>
-                  <td>12/02/2021 | 12:23 PM</td>
-                </tr>
-                <tr>
-                  <th scope="row">Grabriel Samuel</th>
-                  <td>Local </td>
-                  <td>London</td>
-                  <td>12/02/2021 | 12:23 PM</td>
-                </tr>
-                <tr>
-                  <th scope="row">Grabriel Samuel</th>
-                  <td>Local </td>
-                  <td>London</td>
-                  <td>12/02/2021 | 12:23 PM</td>
+                  <td>{{record?.date | date: 'dd/mm/yyyy | hh:mm a'}}</td>
                 </tr>
               </tbody>
             </table>

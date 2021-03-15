@@ -9,9 +9,11 @@ import { apiService } from '../api.service';
 export class GreenCardComponent implements OnInit {
   userId;
   userData: any;
+  records = [];
   constructor(private service: apiService) { }
 
   ngOnInit(): void {
+    this.getDiscounts();
   }
 
   getUserById() {
@@ -29,7 +31,29 @@ export class GreenCardComponent implements OnInit {
         }
       });
     }
+  }
 
+  grandDiscount(user){
+    this.service.grantDiscount({userId: user._id}).subscribe((resp) => {
+      console.log(resp);
+      if(resp.status){
+        this.service.showSuccess(resp.msg);
+        this.userData = null;
+        this.userId = '';
+        this.getDiscounts();
+      }else {
+        this.service.showError(resp.msg);
+      }
+    })
+  }
+
+  getDiscounts(){
+    this.service.getDiscounts({}).subscribe((resp) => {
+      console.log(resp);
+      if(resp.status){
+        this.records = resp.data;
+      }
+    })
   }
 
 }
