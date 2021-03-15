@@ -1,154 +1,145 @@
 <p>green-card works!</p>
 <div class="content-page">
-    <!-- Start content -->
-    <div class="content">
-        <h2 class="header1">Record Visit</h2>
-    </div>
-    <div class="content-body">
-        <div class="card">
-            <div class="card-body">
-               <div class="row">
-                   <div class="col-6">
-              <div class="input-group ">
-            <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input">
-            <span class="input-group-append">
-                <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                    <i class="fa fa-search"></i>
+  <!-- Start content -->
+  <div class="content">
+    <h2 class="header1">Record Visit</h2>
+  </div>
+  <div class="content-body">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <div class="input-group ">
+              <input class="form-control py-2 border-right-0 border" type="search" [(ngModel)]="userId"
+                placeholder="Enter User ID">
+              <span class="input-group-append">
+                <button class="btn btn-outline-secondary border-left-0 border" type="button" (click)="getUserById()">
+                  <i class="fa fa-search"></i>
                 </button>
               </span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="float: right;">
+              <mat-form-field appearance="fill">
+                <mat-label>All Card Type</mat-label>
+                <mat-select>
+                  <mat-option value="one">Type 1</mat-option>
+                  <mat-option value="one">Type 2</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
         </div>
-                   </div>
-                   <div class="col-6">
-                    <div style="float: right;">
-                     <mat-form-field appearance="fill">
-                        <mat-label>All Card Type</mat-label>
-                        <mat-select>
-                            <mat-option value="one">Type 1</mat-option>
-                              <mat-option value="one">Type 2</mat-option>
-                        </mat-select>
-                        </mat-form-field>
-                   </div>
-                   </div>
-                
-               </div>
 
-                <div class="row">
-                   <div class="col-6 pt-3">
-                   
-                   
-                    <div class="">
-
-                        <div class="nearby-user">
+        <div class="row" *ngIf="userData">
+          <div class="col-6 pt-3">
+            <div class="">
+              <div class="nearby-user">
                 <div class="row">
                   <div class="col-md-2 col-sm-2 p-0" style="text-align: right;">
-                    <img src="assets/images/menuuser.svg" 
-                    alt="user" width="60" class="rounded-circle" >
+                    <img src="assets/images/menuuser.svg" alt="user" width="60" class="rounded-circle">
                   </div>
                   <div class="col-md-4 col-sm-7">
-                       <div class="pt-2">Gabriel Jeff</div>
+                    <div class="pt-2">{{userData?.firstName}} {{userData?.lastName}}</div>
                     <h5><a href="#" class="profile-link">Local Card</a></h5>
                   </div>
-                   <div class="col-md-4 col-sm-7">
-                       <button type="button" class="btn btn-primary"
-                       style="border-radius: 2px;
+                  <div class="col-md-4 col-sm-7">
+                    <button type="button" class="btn btn-primary" style="border-radius: 2px;
     padding: 9px 33px;">Grant Discount</button>
-                   </div>
-                  
+                  </div>
                 </div>
               </div>
-
-                         
-                    </div>
-
-                   </div>
-                   
-               </div>
-
             </div>
+          </div>
         </div>
+
+      </div>
     </div>
+  </div>
 
-     <div class="content-body">
-        <div class="card">
-            <div class="card-body">
-                 <div class="row">
-                   <div class="col-12">
-                <h2 class="header2">Selected Records - <span style="color:#07555c">320</span></h2>
-                 <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">User name</th>
-                        <th scope="col">Card Type</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Time Stamp</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Grabriel Samuel</th>
-                            <td>Local </td>
-                            <td>London</td>
-                            <td>12/02/2021   |   12:23 PM</td>
-                        </tr>
-                          <tr>
-                            <th scope="row">Grabriel Samuel</th>
-                            <td>Local </td>
-                            <td>London</td>
-                            <td>12/02/2021   |   12:23 PM</td>
-                        </tr>
-                          <tr>
-                            <th scope="row">Grabriel Samuel</th>
-                            <td>Local </td>
-                            <td>London</td>
-                            <td>12/02/2021   |   12:23 PM</td>
-                        </tr>
-                          <tr>
-                            <th scope="row">Grabriel Samuel</th>
-                            <td>Local </td>
-                            <td>London</td>
-                            <td>12/02/2021   |   12:23 PM</td>
-                        </tr>
-                          <tr>
-                            <th scope="row">Grabriel Samuel</th>
-                            <td>Local </td>
-                            <td>London</td>
-                            <td>12/02/2021   |   12:23 PM</td>
-                        </tr>
-                          <tr>
-                            <th scope="row">Grabriel Samuel</th>
-                            <td>Local </td>
-                            <td>London</td>
-                            <td>12/02/2021   |   12:23 PM</td>
-                        </tr>
-                          <tr>
-                            <th scope="row">Grabriel Samuel</th>
-                            <td>Local </td>
-                            <td>London</td>
-                            <td>12/02/2021   |   12:23 PM</td>
-                        </tr>
-                    </tbody>
-                    </table>
+  <div class="content-body">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="header2">Selected Records - <span style="color:#07555c">320</span></h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">User name</th>
+                  <th scope="col">Card Type</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Time Stamp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Grabriel Samuel</th>
+                  <td>Local </td>
+                  <td>London</td>
+                  <td>12/02/2021 | 12:23 PM</td>
+                </tr>
+                <tr>
+                  <th scope="row">Grabriel Samuel</th>
+                  <td>Local </td>
+                  <td>London</td>
+                  <td>12/02/2021 | 12:23 PM</td>
+                </tr>
+                <tr>
+                  <th scope="row">Grabriel Samuel</th>
+                  <td>Local </td>
+                  <td>London</td>
+                  <td>12/02/2021 | 12:23 PM</td>
+                </tr>
+                <tr>
+                  <th scope="row">Grabriel Samuel</th>
+                  <td>Local </td>
+                  <td>London</td>
+                  <td>12/02/2021 | 12:23 PM</td>
+                </tr>
+                <tr>
+                  <th scope="row">Grabriel Samuel</th>
+                  <td>Local </td>
+                  <td>London</td>
+                  <td>12/02/2021 | 12:23 PM</td>
+                </tr>
+                <tr>
+                  <th scope="row">Grabriel Samuel</th>
+                  <td>Local </td>
+                  <td>London</td>
+                  <td>12/02/2021 | 12:23 PM</td>
+                </tr>
+                <tr>
+                  <th scope="row">Grabriel Samuel</th>
+                  <td>Local </td>
+                  <td>London</td>
+                  <td>12/02/2021 | 12:23 PM</td>
+                </tr>
+              </tbody>
+            </table>
 
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="content-body">
+  <div class="content-body">
     <div class="row">
-        <div class="col-12">
-                            <nav aria-label="Page navigation example" >
-                <ul class="pagination" style="float:right;">
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                   
-                </ul>
-                </nav>
-        </div>
+      <div class="col-12">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination" style="float:right;">
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+          </ul>
+        </nav>
+      </div>
     </div>
-</div>
+  </div>
 
 
 

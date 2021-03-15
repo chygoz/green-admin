@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { apiService } from '../api.service';
 import { CookieService } from '../services/cookie.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class ProfileComponent implements OnInit {
   userData;
   profileForm: FormGroup;
   formSubmit: boolean = false;
-  constructor(private cookieService: CookieService, private fb: FormBuilder) {
+  constructor(private cookieService: CookieService, private fb: FormBuilder, private service: apiService) {
     this.userData = this.cookieService.getCookie('currentUser');
     this.userData = JSON.parse(this.userData);
     console.log(this.userData);
