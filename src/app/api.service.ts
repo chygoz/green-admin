@@ -76,6 +76,14 @@ import { ToastrService } from 'ngx-toastr';
       return this.http.post(config.api_url+'admin/getStats', params, {headers});
     }
 
+    getUsers(params): Observable<any> {
+      let token = this.cookieService.getCookie('token');
+      let headers = new HttpHeaders();
+        headers = headers.append('token', token);
+        headers = headers.append('Content-Type',  'application/json');
+      return this.http.post(config.api_url+'admin/getUsers', params, {headers});
+    }
+
     getUserById(params): Observable<any> {
       let token = this.cookieService.getCookie('token');
       let headers = new HttpHeaders();
