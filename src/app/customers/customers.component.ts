@@ -17,7 +17,6 @@ export class CustomersComponent implements OnInit {
 
   getCustomers(){
     this.service.getUsers({}).subscribe((resp) => {
-      console.log(resp);
       if(resp.status && resp.data[0]){
         this.users = resp.data;
       }
@@ -26,9 +25,9 @@ export class CustomersComponent implements OnInit {
 
   deleteUser(userId){
     this.service.deleteUser({userId}).subscribe((resp) => {
-      console.log(resp);
       if(resp.status){
         this.service.showSuccess(resp.msg);
+        this.getCustomers();
       }else {
         this.service.showError(resp.msg);
       }
