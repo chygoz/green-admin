@@ -23,4 +23,15 @@ export class CustomersComponent implements OnInit {
       }
     })
   }
+
+  deleteUser(userId){
+    this.service.deleteUser({userId}).subscribe((resp) => {
+      console.log(resp);
+      if(resp.status){
+        this.service.showSuccess(resp.msg);
+      }else {
+        this.service.showError(resp.msg);
+      }
+    })
+  }
 }

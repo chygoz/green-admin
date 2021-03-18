@@ -89,7 +89,7 @@
                                                 <button mat-menu-item>
                                                     <span><i class="fa fa-flag"></i> &nbsp; &nbsp; &nbsp;Report</span>
                                                 </button>
-                                                <button mat-menu-item>
+                                                <button mat-menu-item (click)="deleteUser(user?._id)">
                                                     <span> <i class="fa fa-trash"></i> &nbsp; &nbsp; &nbsp;
                                                         Delete</span>
                                                 </button>
