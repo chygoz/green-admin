@@ -61,21 +61,14 @@
                                     
                                     <td>
                                         <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="menu"
-                                            #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()"
+                                            #menuTrigger="matMenuTrigger" (click)="menuTrigger.openMenu()"
                                             id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false" style="outline: none;font-size: 12px;color: #000  ;">
                                             <img src="assets/images/doted.svg" alt="user" width="20">
                                         </a>
                                         <mat-menu #menu="matMenu" [overlapTrigger]="false">
                                             <span (mouseleave)="menuTrigger.closeMenu()">
-
-                                                <button mat-menu-item>
-                                                    <span> <i class="fa fa-ban"></i> &nbsp; &nbsp; &nbsp;Block</span>
-                                                </button>
-                                                <button mat-menu-item>
-                                                    <span><i class="fa fa-flag"></i> &nbsp; &nbsp; &nbsp;Report</span>
-                                                </button>
-                                                <button mat-menu-item>
+                                                <button mat-menu-item (click)="deleteMerchant(merchant?._id)">
                                                     <span> <i class="fa fa-trash"></i> &nbsp; &nbsp; &nbsp;
                                                         Delete</span>
                                                 </button>

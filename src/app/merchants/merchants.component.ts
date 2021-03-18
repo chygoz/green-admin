@@ -36,6 +36,17 @@ export class MerchantsComponent implements OnInit {
     })
   }
 
+  deleteMerchant(merchantId){
+    this.service.deleteMerchant({merchantId}).subscribe((resp) => {
+      if(resp.status){
+        this.service.showSuccess(resp.msg);
+        this.getMerchants();
+      }else {
+        this.service.showError(resp.msg);
+      }
+    })
+  }
+
   newmarchantDialog() {
     let dialogRef = this.dialog.open(NewMerchantComponent,
       {
