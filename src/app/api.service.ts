@@ -123,6 +123,14 @@ import { ToastrService } from 'ngx-toastr';
         headers = headers.append('Content-Type',  'application/json');
       return this.http.post(config.api_url+'admin/getDiscounts', params, {headers});
     }
+
+    getNetworkByUserId(params): Observable<any> {
+      let token = this.cookieService.getCookie('token');
+      let headers = new HttpHeaders();
+        headers = headers.append('token', token);
+        headers = headers.append('Content-Type',  'application/json');
+      return this.http.post(config.api_url+'admin/getNetworkByUserId', params, {headers});
+    }
     
 
     showSuccess(msg) {

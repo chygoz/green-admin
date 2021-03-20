@@ -34,6 +34,7 @@ import { NewOutletComponent } from './new-outlet/new-outlet.component';
 import { NewMerchantComponent } from './new-merchant/new-merchant.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { ToastrModule } from 'ngx-toastr';
+import { LegsidePipe } from './legside.pipe';
 
 
 
@@ -60,6 +61,7 @@ import { ToastrModule } from 'ngx-toastr';
     NewOutletComponent,
     NewMerchantComponent,
     CustomerDetailsComponent,
+    LegsidePipe,
 
   ],
   imports: [

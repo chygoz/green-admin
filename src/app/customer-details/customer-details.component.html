@@ -2,225 +2,178 @@
 <div class="content-page">
     <!-- Start content -->
     <div class="content">
-        <h2 class="header1">Customers > Gabriel Samuel</h2>
+        <h2 class="header1">Customers</h2>
     </div>
     <div class="content-body">
         <div class="card">
             <div class="card-body">
-               <div class="row">
-                   <div class="col-6">
-              <div class="input-group ">
-            <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input">
-            <span class="input-group-append">
-                <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                    <i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-                   </div>
-                   <div class="col-6">
-                    <div style="float: right;">
-                     <mat-form-field appearance="fill">
-                        <mat-label>Card Type</mat-label>
-                        <mat-select>
-                            <mat-option value="one">Type 1</mat-option>
-                              <mat-option value="one">Type 2</mat-option>
-                        </mat-select>
-                        </mat-form-field>
-                   </div>
-                   </div>
-                
-               </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group ">
+                            <input type="search" placeholder="Enter UserID" [(ngModel)]="userId"
+                                class="form-control py-2 border-right-0 border">
+                            <span class="input-group-append">
+                                <button class="btn btn-outline-secondary border-left-0 border" type="button"
+                                    (click)="getUserData()">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div style="float: right;">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Card Type</mat-label>
+                                <mat-select>
+                                    <mat-option value="one">Type 1</mat-option>
+                                    <mat-option value="one">Type 2</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                </div>
 
                 <div class="row">
-                   <div class="col-12 pt-3">
-                   
-                   <div class="tree">
-                                <ul>
-                                    <li>
-                                        <div class="family">
-                                           
-                                                 <div class="person female">
-                                                    <div class="">
-                                                        <div class="card text-center">
-                                                            <div class="card-body cardpadding">
-                                                                <img src="assets/images/menuuser.svg" alt="" 
-                                                                     class="img-fluid useroverly" width="50" >
-                                                                <h5 class="header5 pt-3">Michelle</h5>
-                                                                <div class="para5">Business Card</div>
-                                                            </div>
-                                                            <div class="card-footer text-muted p-2 left-footer">
-                                                                
-                                                            </div>
-                                                            </div>
+                    <div class="col-12 pt-3">
 
+                        <div class="tree">
+                            <ul>
+                                <li>
+                                    <div class="family">
+
+                                        <div class="person female">
+                                            <div class="">
+                                                <div class="card text-center" *ngIf="mainNetwork">
+                                                    <div class="card-body cardpadding">
+                                                        <img src="assets/images/user.svg" alt=""
+                                                            class="img-fluid useroverly" width="50">
+                                                        <h5 class="header5 pt-3">{{mainNetwork?.firstName}}
+                                                            {{mainNetwork?.lastName}}</h5>
+                                                        <div class="para5">Business Card</div>
+                                                    </div>
+                                                    <div class="card-footer text-muted p-2 left-footer">
                                                     </div>
                                                 </div>
-                                                <ul>
-                                                   <li>
-                                                    <div class="family" style="width: 172px">
-                                                        <div class="person child male">
-                                                          <div class="">
-                                                            <div class="card text-center">
-                                                            <div class="card-body cardpadding">
-                                                                <img src="assets/images/menuuser.svg" alt="" 
-                                                                     class="img-fluid useroverly" width="50" >
-                                                                <h5 class="header5 pt-3">Michelle</h5>
-                                                                <div class="para5">Business Card</div>
-                                                            </div>
-                                                            <div class="card-footer text-muted p-2 right-footer">
-                                                            </div>
-                                                            </div>
-                                                            <div class="footericons row pt-1">
-                                                                <div class="col-6">
-                                                                    <img src="assets/images/circle-button.svg" 
-                                                                    alt="" class="img-fluid lefticon" width="25" >
-                                                                </div>
-                                                                <div class="col-6">
-                                                                <img src="assets/images/plus.svg" 
-                                                                    alt="" class="img-fluid righticon" width="25" >
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                        </div>
+                                                <div class="footericons row pt-1">
+                                                    <!-- <div class="col-6">
+                                                        <img *ngIf="(networks | legside: 'left': mainNetwork?._id)"
+                                                            src="assets/images/arrow.svg" alt=""
+                                                            class="img-fluid lefticon" width="30">
+                                                        <img *ngIf="!(networks | legside: 'left': mainNetwork?._id)"
+                                                            src="assets/images/plus.svg" [matMenuTriggerFor]="menuLeft"
+                                                            alt="" class="img-fluid righticon" width="30">
                                                     </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="family" style="width: 344px">
-                                                            
-                                                                <div class="person child male">
-                                                                        <div class="">
-                                                        <div class="card text-center">
-                                                            <div class="card-body cardpadding">
-                                                                <img src="assets/images/menuuser.svg" alt="" 
-                                                                     class="img-fluid useroverly" width="50" >
-                                                                <h5 class="header5 pt-3">Miriam</h5>
-                                                                <div class="para5">Business Card</div>
-                                                        </div>
-                                                            <div class="card-footer text-muted p-2 right-footer">
-                                                            </div>
-                                                        </div>
-                                                            <div class="footericons row pt-1">
-                                                                <div class="col-6">
-                                                                    <img src="assets/images/circle-button.svg" 
-                                                                    alt="" class="img-fluid lefticon" width="25" >
-                                                                </div>
-                                                                <div class="col-6">
-                                                                <img src="assets/images/plus.svg" 
-                                                                    alt="" class="img-fluid righticon" width="25" >
-                                                                </div>
+                                                    <div class="col-6">
+                                                        <img *ngIf="(networks | legside: 'right': mainNetwork?._id)"
+                                                            src="assets/images/arrow.svg" alt=""
+                                                            class="img-fluid lefticon" width="30">
+                                                        <img *ngIf="!(networks | legside: 'right': mainNetwork?._id)"
+                                                            src="assets/images/plus.svg" [matMenuTriggerFor]="menuRight"
+                                                            alt="" class="img-fluid righticon" width="30">
+                                                    </div> -->
 
-                                                            </div>
+                                                </div>
+                                                <!-- <mat-menu #menuLeft="matMenu">
+                                                    <div *ngFor="let pn of pendingNetworks">
+                                                        <button mat-menu-item>
+                                                            <img src="assets/images/plus1.svg" class="img-fluid"
+                                                                width="15">
+                                                            <span> add {{pn.firstName}} {{pn.lastName}} to left</span>
+                                                        </button>
+                                                    </div>
+                                                </mat-menu>
+                                                <mat-menu #menuRight="matMenu">
+                                                    <div *ngFor="let pn of pendingNetworks">
+                                                        <button mat-menu-item>
+                                                            <img src="assets/images/plus1.svg" class="img-fluid"
+                                                                width="15">
+                                                            <span> add {{pn.firstName}} {{pn.lastName}} to right</span>
+                                                        </button>
+                                                    </div>
+                                                </mat-menu> -->
 
-                                                                        </div>
-                                                                </div>
-                                                                <ul>
-                                                                    <li>
-                                                                    <div class="person child male">
-                                                                        <div class="">
-                                                  <div class="card text-center">
-                                                            <div class="card-body cardpadding">
-                                                                <img src="assets/images/menuuser.svg" alt="" 
-                                                                     class="img-fluid useroverly" width="50" >
-                                                                <h5 class="header5 pt-3">Miriam</h5>
-                                                                <div class="para5">Business Card</div>
-                                                        </div>
-                                                            <div class="card-footer text-muted p-2 right-footer">
-                                                            </div>
-                                                        </div>
-                                                            <div class="footericons row pt-1">
-                                                                <div class="col-6">
-                                                                    <img src="assets/images/circle-button.svg" 
-                                                                    alt="" class="img-fluid lefticon" width="25" >
-                                                                </div>
-                                                                <div class="col-6">
-                                                                <img src="assets/images/plus.svg" 
-                                                                    alt="" class="img-fluid righticon" width="25" >
-                                                                </div>
-
-                                                            </div>
-                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                    </li>
-                                                                    <li>
-                                                                    <div class="person child female">
-                                                                        <div class="">
-                                                <div class="card text-center">
-                                                            <div class="card-body cardpadding">
-                                                                <img src="assets/images/menuuser.svg" alt="" 
-                                                                     class="img-fluid useroverly" width="50" >
-                                                                <h5 class="header5 pt-3">Miriam</h5>
-                                                                <div class="para5">Business Card</div>
-                                                        </div>
-                                                            <div class="card-footer text-muted p-2 right-footer">
-                                                            </div>
-                                                        </div>
-                                                            <div class="footericons row pt-1">
-                                                                <div class="col-6">
-                                                                    <img src="assets/images/circle-button.svg" 
-                                                                    alt="" class="img-fluid lefticon" width="25" >
-                                                                </div>
-                                                                <div class="col-6">
-                                                                <img src="assets/images/plus.svg" 
-                                                                    alt="" class="img-fluid righticon" width="25" >
-                                                                </div>
-
-                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    </li>
-                                                                </ul>
-                                                            
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                             
-                                        </div>
-                                      
-                                    </li>
-                                </ul>
-                            </div>
-                    
-
-                   </div>
-                   
-               </div>
-
-               <div class="row mb-5">
-                            <div class="col-3 px-0"></div>
-                            <div class="col-6 px-0">
-                                <div class="card" style="width: 22rem;">
-                                        <div class="card-body">
-                                            <div class="para1">
-                                                <a href="">
-                                                    <img src="assets/images/plus1.svg" 
-                                                                            alt="" class="img-fluid" width="15" >
-                                                    Add as a <strong>Left Volume</strong> to Gloria
-                                                </a>
                                             </div>
                                         </div>
+                                        <ul>
+                                            <li *ngFor="let network of networks">
+                                                <div class="family" style="width: 172px">
+                                                    <div class="person child male">
+                                                        <div class="">
+                                                            <div class="card text-center">
+                                                                <div class="card-body cardpadding">
+                                                                    <img src="assets/images/user.svg" alt=""
+                                                                        style="cursor: pointer;"
+                                                                        class="img-fluid useroverly" width="50">
+                                                                    <h5 class="header5 pt-3">{{network?.firstName}}
+                                                                        {{network?.lastName}}</h5>
+                                                                    <div class="para5">Business Card</div>
+                                                                </div>
+                                                                <div class="card-footer text-muted p-2 right-footer">
+                                                                </div>
+                                                            </div>
+                                                            <div class="footericons row pt-1">
+                                                                <!-- <div class="col-6">
+                                                                    <img *ngIf="(allNetworks | legside: 'left': network._id)"
+                                                                        src="assets/images/arrow.svg" alt=""
+                                                                        class="img-fluid lefticon" width="30">
+                                                                    <img *ngIf="!(allNetworks | legside: 'left': network._id)"
+                                                                        src="assets/images/plus.svg"
+                                                                        [matMenuTriggerFor]="menu1Left" alt=""
+                                                                        class="img-fluid righticon" width="30">
+                                                                </div> -->
+                                                                <!-- <div class="col-6">
+                                                                    <img *ngIf="(allNetworks | legside: 'right': network._id)"
+                                                                        src="assets/images/arrow.svg" alt=""
+                                                                        class="img-fluid lefticon" width="30">
+                                                                    <img *ngIf="!(allNetworks | legside: 'right': network._id)"
+                                                                        src="assets/images/plus.svg"
+                                                                        [matMenuTriggerFor]="menu1Right" alt=""
+                                                                        class="img-fluid righticon" width="30">
+                                                                </div> -->
 
-                                          <div class="card-body">
-                                        <div class="para1">
-                                             <a href="">
-                                            <img src="assets/images/plus1.svg" 
-                                                                    alt="" class="img-fluid" width="15" >
-                                            Add as a <strong>right Volume</strong> to Gloria
-                                        </a>
-                                        </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <mat-menu #menu1Left="matMenu">
+                                                    <div *ngFor="let pn of pendingNetworks">
+                                                        <button mat-menu-item>
+                                                            <img src="assets/images/plus1.svg" class="img-fluid"
+                                                                width="15">
+                                                            <span> add {{pn.firstName}} {{pn.lastName}} to left</span>
+                                                        </button>
+                                                    </div>
+                                                </mat-menu> -->
+                                                <!-- <mat-menu #menu1Right="matMenu">
+                                                    <div *ngFor="let pn of pendingNetworks">
+                                                        <button mat-menu-item>
+                                                            <img src="assets/images/plus1.svg" class="img-fluid"
+                                                                width="15">
+                                                            <span> add {{pn.firstName}} {{pn.lastName}} to right</span>
+                                                        </button>
+                                                    </div>
+                                                </mat-menu> -->
+                                            </li>
+
+                                        </ul>
+
                                     </div>
-                                    </div>
-                            </div>
+
+                                </li>
+                            </ul>
                         </div>
+
+
+                    </div>
+
+                </div>
 
             </div>
         </div>
     </div>
 
-     
+
 
 
 
