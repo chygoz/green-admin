@@ -14,8 +14,7 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="input-group ">
-                            <input class="form-control py-2 border-right-0 border" type="search" value="search"
-                                id="example-search-input">
+                            <input class="form-control py-2 border-right-0 border" type="search" [(ngModel)]="filter">
                             <span class="input-group-append">
                                 <button class="btn btn-outline-secondary border-left-0 border" type="button">
                                     <i class="fa fa-search"></i>
@@ -66,7 +65,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let user of users">
+                                <tr *ngFor="let user of users | search: 'firstName,lastName':filter">
                                     <th scope="row">{{user?.firstName}} {{user?.lastName}}</th> 
                                     <td>International </td>
                                     <td>34</td>
@@ -82,6 +81,14 @@
                                         </a>
                                         <mat-menu #menu="matMenu" [overlapTrigger]="false">
                                             <span (mouseleave)="menuTrigger.closeMenu()">
+                                                <button mat-menu-item (click)="blockUnblockUser(user?._id, 'unblock')" *ngIf="user?.blocked">
+                                                    <span>&nbsp;
+                                                        UnBlock</span>
+                                                </button>
+                                                <button mat-menu-item (click)="blockUnblockUser(user?._id, 'block')" *ngIf="!user?.blocked">
+                                                    <span>&nbsp;
+                                                        Block</span>
+                                                </button>
                                                 <button mat-menu-item (click)="deleteUser(user?._id)">
                                                     <span> <i class="fa fa-trash"></i> &nbsp;
                                                         Delete</span>

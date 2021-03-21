@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { apiService } from '../api.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { apiService } from '../api.service';
 })
 export class CustomersComponent implements OnInit {
   users: any;
+  filter = '';
 
   constructor(private service: apiService) { }
 
@@ -25,6 +26,17 @@ export class CustomersComponent implements OnInit {
 
   deleteUser(userId){
     this.service.deleteUser({userId}).subscribe((resp) => {
+      if(resp.status){
+        this.service.showSuccess(resp.msg);
+        this.getCustomers();
+      }else {
+        this.service.showError(resp.msg);
+      }
+    })
+  }
+
+  blockUnblockUser(userId, block){
+    this.service.blockUnblockUser({userId, block}).subscribe((resp) => {
       if(resp.status){
         this.service.showSuccess(resp.msg);
         this.getCustomers();

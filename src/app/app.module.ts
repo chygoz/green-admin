@@ -35,6 +35,7 @@ import { NewMerchantComponent } from './new-merchant/new-merchant.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LegsidePipe } from './legside.pipe';
+import { SearchPipe } from './search.pipe';
 
 
 
@@ -62,6 +63,7 @@ import { LegsidePipe } from './legside.pipe';
     NewMerchantComponent,
     CustomerDetailsComponent,
     LegsidePipe,
+    SearchPipe,
 
   ],
   imports: [
