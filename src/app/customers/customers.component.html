@@ -31,9 +31,9 @@
                             <div class="col-4">
                                 <mat-form-field appearance="fill">
                                     <mat-label>Sort By</mat-label>
-                                    <mat-select>
-                                        <mat-option value="one" selected>Active</mat-option>
-                                        <mat-option value="one">Blocked</mat-option>
+                                    <mat-select (selectionChange)="sortByData($event.value)">
+                                        <mat-option value="active" selected>Active</mat-option>
+                                        <mat-option value="blocked">Blocked</mat-option>
                                     </mat-select>
                                 </mat-form-field>
                             </div>
@@ -61,6 +61,7 @@
                                     <th scope="col">Records</th>
                                     <th scope="col">No. Of Referrals</th>
                                     <th scope="col">Location</th>
+                                    <th scope="col">Status</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -72,6 +73,7 @@
                                     <td>4</td>
 
                                     <td>Location1</td>
+                                    <td>{{user?.blocked?'Blocked':'Active'}}</td>
                                     <td>
                                         <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="menu"
                                             #menuTrigger="matMenuTrigger" (click)="menuTrigger.openMenu()"
@@ -83,7 +85,7 @@
                                             <span (mouseleave)="menuTrigger.closeMenu()">
                                                 <button mat-menu-item (click)="blockUnblockUser(user?._id, 'unblock')" *ngIf="user?.blocked">
                                                     <span>&nbsp;
-                                                        UnBlock</span>
+                                                        Activate</span>
                                                 </button>
                                                 <button mat-menu-item (click)="blockUnblockUser(user?._id, 'block')" *ngIf="!user?.blocked">
                                                     <span>&nbsp;

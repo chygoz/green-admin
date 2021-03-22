@@ -45,4 +45,13 @@ export class CustomersComponent implements OnInit {
       }
     })
   }
+
+  sortByData(event){
+    console.log(event);
+    if(event == 'active') {
+      this.users.sort((a,b) => (a.blocked > b.blocked ? -1 : 1));
+    } else if(event == 'blocked') {
+      this.users.sort((a,b) => (b.blocked > a.blocked ? -1 : 1));
+    }
+  }
 }
