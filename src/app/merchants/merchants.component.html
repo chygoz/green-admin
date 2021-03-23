@@ -6,7 +6,9 @@
                 <h2 class="header1">Merchants</h2>
             </div>
             <div class="col-6" style="text-align: right;">
-                <button type="button" *ngIf="userData?.role == 'merchant'" class="btn btn-primary mr-4"
+                <button type="button" 
+                *ngIf="userData.role == 'merchant' || userData.role == 'superAdmin' "
+                class="btn btn-primary mr-4"
                     (click)="newouletDialog()"><i class="fa fa-plus"></i>
                     Add New Outlet</button>
                 <button type="button" *ngIf="userData?.role == 'superAdmin'" class="btn btn-secondary"

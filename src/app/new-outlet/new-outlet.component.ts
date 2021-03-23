@@ -27,6 +27,7 @@ export function ConfirmedValidator(controlName: string, matchingControlName: str
 export class NewOutletComponent implements OnInit {
   outletForm: FormGroup;
   formSubmit: boolean = false;
+  merchants = [];
   public emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   constructor(public fb: FormBuilder, private service: apiService, public dialogRef: MatDialogRef<NewOutletComponent>, private cookieService: CookieService) { }
 
@@ -40,6 +41,18 @@ export class NewOutletComponent implements OnInit {
       confirmPassword: ['', Validators.required],
     }, {
       validator: ConfirmedValidator('password', 'confirmPassword')
+    });
+
+    this.getMerchants();
+  }
+
+  getMerchants() {
+    this.service.getMerchants({}).subscribe((resp) => {
+      if (resp.status) {
+        this.merchants = resp.data;
+        console.log(this.merchants);
+      }
+
     })
   }
 
@@ -47,17 +60,17 @@ export class NewOutletComponent implements OnInit {
     return this.outletForm.controls;
   }
 
-  onSubmit(){
+  onSubmit() {
     this.formSubmit = true;
-    if(!this.outletForm.valid){
+    if (!this.outletForm.valid) {
       return false;
     }
 
     this.service.createOutlet(this.outletForm.value).subscribe((resp) => {
-      if(resp.status){
+      if (resp.status) {
         this.service.showSuccess(resp.msg);
         this.dialogRef.close();
-      }else {
+      } else {
         this.service.showError(resp.msg);
       }
     })

@@ -7,9 +7,12 @@
                 <form [formGroup]="outletForm" (ngSubmit)="onSubmit()">
                     <div class="form-row m-0">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">Store Name</label>
-                            <input type="name" class="form-control" formControlName="storeName"
+                            <label for="inputEmail4">Choose Store</label>
+                            <select class="form-control" formControlName="storeName"
                                 placeholder="Store Name">
+                                <option value="">Select</option>
+                                <option *ngFor="let merchant of merchants" value="{{merchant?._id}}" >{{merchant?.storeName}}</option>
+                                </select>
                                 <div class="inputError" *ngIf="f.storeName.errors?.required && formSubmit">
                                     Email Required!
                                 </div>

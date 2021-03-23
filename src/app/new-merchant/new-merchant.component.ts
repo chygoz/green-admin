@@ -29,7 +29,8 @@ export class NewMerchantComponent implements OnInit {
   formSubmit: boolean = false;
   public emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  constructor(public fb: FormBuilder, private service: apiService, public dialogRef: MatDialogRef<NewMerchantComponent>, private cookieService: CookieService) { }
+  constructor(public fb: FormBuilder, private service: apiService,
+    public dialogRef: MatDialogRef<NewMerchantComponent>, private cookieService: CookieService) { }
 
   ngOnInit(): void {
     //storeName, email, phoneNumber, userName, password
@@ -49,17 +50,17 @@ export class NewMerchantComponent implements OnInit {
     return this.merchantForm.controls;
   }
 
-  onSubmit(){
+  onSubmit() {
     this.formSubmit = true;
-    if(!this.merchantForm.valid){
+    if (!this.merchantForm.valid) {
       return false;
     }
 
     this.service.createMerchant(this.merchantForm.value).subscribe((resp) => {
-      if(resp.status){
+      if (resp.status) {
         this.service.showSuccess(resp.msg);
         this.dialogRef.close();
-      }else {
+      } else {
         this.service.showError(resp.msg);
       }
     })
