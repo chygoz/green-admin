@@ -8,7 +8,8 @@
                     <div class="form-row m-0">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Choose Store</label>
-                            <select class="form-control" formControlName="storeName"
+                            <select class="form-control" name="storeName" 
+                            formControlName="storeName"
                                 placeholder="Store Name">
                                 <option value="">Select</option>
                                 <option *ngFor="let merchant of merchants" value="{{merchant?._id}}" >{{merchant?.storeName}}</option>

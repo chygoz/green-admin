@@ -17,14 +17,14 @@ export class ProfileComponent implements OnInit {
     this.userData = this.cookieService.getCookie('currentUser');
     this.userData = JSON.parse(this.userData);
     console.log(this.userData);
-   }
+  }
 
   ngOnInit(): void {
     this.profileForm = this.fb.group({
-      firstName: ['', Validators.required],
+      firstName: ['asdfsadf', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.pattern(this.emailregex)]],
-      phoneNumber: ['', Validators.required],
+      email: [''],
+      mobile: ['', Validators.required],
       city: [''],
       state: [''],
       zipCode: [''],
@@ -33,6 +33,14 @@ export class ProfileComponent implements OnInit {
     })
 
     this.profileForm.patchValue(this.userData);
+    this.service.updateAdmin(this.profileForm.value).subscribe((resp) => {
+      if (resp.status) {
+        this.cookieService.setCookie('currentUser', JSON.stringify(resp.data), 1);
+        this.service.showSuccess(resp.msg);
+      } else {
+        this.service.showError(resp.msg);
+      }
+    })
   }
 
   get f() {
@@ -40,10 +48,20 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {
+
     this.formSubmit = true;
-    if(!this.profileForm.valid){
+    if (!this.profileForm.valid) {
       return false;
     }
+    this.profileForm.value._id = this.userData._id;
+    this.service.updateAdmin(this.profileForm.value).subscribe((resp) => {
+      if (resp.status) {
+        this.cookieService.setCookie('currentUser', JSON.stringify(resp.data), 1);
+        this.service.showSuccess(resp.msg);
+      } else {
+        this.service.showError(resp.msg);
+      }
+    })
 
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NewMerchantComponent } from '../new-merchant/new-merchant.component';
 import { NewOutletComponent } from '../new-outlet/new-outlet.component';
 import { CookieService } from '../services/cookie.service';
@@ -14,27 +14,40 @@ import { apiService } from '../api.service';
 export class OutletsComponent implements OnInit {
 
   userData;
+  filter = '';
+  id: number;
+  storeName;
   outlets = [];
-  constructor(location: Location, public dialog: MatDialog, private router: Router, 
-    private cookieService: CookieService, private service: apiService) {
+  constructor(location: Location, public dialog: MatDialog, private router: Router,
+    private cookieService: CookieService, private service: apiService, private route: ActivatedRoute) {
     this.userData = this.cookieService.getCookie('currentUser');
     this.userData = JSON.parse(this.userData);
-    console.log(this.userData);
+    this.storeName = this.userData.storeName;
+    if ("merchantId" in this.userData) {
+      this.id = this.userData._id;
+
+    }
+
   }
 
   ngOnInit(): void {
-    this.getOutlets();
+    this.route.params.subscribe(params => {
+      this.id = params["id"];
+    });
+    this.getOutlets(this.id);
+
   }
 
-  getOutlets(){
-    this.service.getOutlets({}).subscribe((resp) => {
-      if(resp.status){
+  getOutlets(id = null) {
+
+    this.service.getOutlets({ _id: id }).subscribe((resp) => {
+      if (resp.status) {
         this.outlets = resp.data;
         console.log(this.outlets);
       }
     })
   }
-  
+
 
   newmarchantDialog() {
     let dialogRef = this.dialog.open(NewMerchantComponent,
@@ -58,10 +71,10 @@ export class OutletsComponent implements OnInit {
     })
   }
 
-  deleteOutlet(id){
-    this.service.deleteOutlet({id}).subscribe((resp) => {
+  deleteOutlet(id) {
+    this.service.deleteOutlet({ id }).subscribe((resp) => {
       this.service.showSuccess(resp.msg);
-      this.getOutlets();
+      this.getOutlets(this.id);
     })
   }
 

@@ -21,26 +21,22 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-6">
-
-                    </div>
-                    <div class="col-6" style="text-align: right;">
-                        <div class="row" style="text-align: right;">
-                            <div class="col-7"></div>
-                         
-                            <div class="col-5">
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Store</mat-label>
-                                    <mat-select>
-                                        <mat-option value="one">Store 1</mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-                            
+                    <div class="col-4">
+                        <div class="input-group ">
+                            <input class="form-control py-2 border-right-0 border" 
+                            placeholder="Merchant Name, Email, Phone" type="search" [(ngModel)]="filter">
+                            <span class="input-group-append">
+                                <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
                         </div>
                     </div>
+                    <div class="col-6" style="text-align: right;">
+                       
+                    </div>
                 </div>
-                <div class="row">
+                <div class="row pt-4">
                     <div class="col-12">
                         <table class="table">
                             <thead>
@@ -54,7 +50,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let merchant of merchants">
+                                <tr *ngFor="let merchant of merchants | search: 'storeName,email,phoneNumber':filter">
                                     <th scope="row">{{merchant?.storeName}}</th>
                                     <td>{{merchant?.userName}}</td>
                                     <td>{{merchant?.email}}</td>
@@ -70,8 +66,12 @@
                                         </a>
                                         <mat-menu #menu="matMenu" [overlapTrigger]="false">
                                             <span (mouseleave)="menuTrigger.closeMenu()">
+                                                 <button mat-menu-item [routerLink] = "['/outlets', merchant?._id ]">
+                                                    <span> <i class="fa fa-eye"></i> &nbsp; 
+                                                        View Outlets</span>
+                                                </button>
                                                 <button mat-menu-item (click)="deleteMerchant(merchant?._id)">
-                                                    <span> <i class="fa fa-trash"></i> &nbsp; &nbsp; &nbsp;
+                                                    <span> <i class="fa fa-trash"></i> &nbsp; 
                                                         Delete</span>
                                                 </button>
                                             </span>

@@ -14,34 +14,39 @@ import { apiService } from '../api.service';
 })
 export class MerchantsComponent implements OnInit {
   userData;
+  filter = '';
   merchants = [];
-  constructor(location: Location, public dialog: MatDialog, private router: Router, 
+  constructor(location: Location, public dialog: MatDialog, private router: Router,
     private cookieService: CookieService, private service: apiService) {
     this.userData = this.cookieService.getCookie('currentUser');
     this.userData = JSON.parse(this.userData);
-    console.log(this.userData);
-   }
+
+  }
 
   ngOnInit(): void {
     this.getMerchants();
   }
 
-  getMerchants(){
+  getMerchants() {
     this.service.getMerchants({}).subscribe((resp) => {
-      if(resp.status){
+
+      if (resp.status) {
         this.merchants = resp.data;
         console.log(this.merchants);
       }
 
     })
   }
+  viewoutlets(merchantId) {
 
-  deleteMerchant(merchantId){
-    this.service.deleteMerchant({merchantId}).subscribe((resp) => {
-      if(resp.status){
+  }
+
+  deleteMerchant(merchantId) {
+    this.service.deleteMerchant({ merchantId }).subscribe((resp) => {
+      if (resp.status) {
         this.service.showSuccess(resp.msg);
         this.getMerchants();
-      }else {
+      } else {
         this.service.showError(resp.msg);
       }
     })

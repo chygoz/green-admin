@@ -57,9 +57,9 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'outlets', component: LayoutComponent,
+    path: '', component: LayoutComponent,
     children: [
-      { path: '', component: OutletsComponent }
+      { path: 'outlets/:id', component: OutletsComponent }
     ]
   },
   {
