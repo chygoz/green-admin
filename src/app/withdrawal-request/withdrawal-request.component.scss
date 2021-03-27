@@ -123,3 +123,39 @@
     outline: none !important;
     box-shadow: none;
 }
+
+.button-green,
+.button-green:hover {
+    border-radius: 17px;
+    font-size: 11px;
+    padding: 4px 18px;
+    color: #3ca063;
+    background-color: #b0e2c4;
+    border: #b0e2c4;
+    font-weight: bold;
+    outline: none;
+}
+.button-orange,
+.button-orange:hover {
+    border-radius: 17px;
+    font-size: 11px;
+    padding: 4px 25px;
+    color: #fd9405 !important;
+    background-color: #fff !important;
+    border: 1px solid #fd9405 !important;
+    font-weight: bold;
+    outline: none;
+}
+
+.button-red,
+.button-red:hover {
+    border-radius: 17px;
+    font-size: 11px;
+    padding: 4px 18px;
+    color: #fff;
+    background-color: #ff3636;
+    border: #ff3636;
+    font-weight: bold;
+    outline: none;
+    outline-color: none;
+}

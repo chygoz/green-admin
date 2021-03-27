@@ -8,31 +8,98 @@
             <div class="card-body">
                <div class="row">
                 <div class="col-md-12">
-                        <h1 class="header1">Withdraw Per Point value</h1>
+                        <h1 class="header2">Withdraw Per Point value</h1>
                 </div>
                  <div class="col-md-1 pt-2" style="font-size: 18px;">1 Point =</div>
                  <div class="col-md-6">
-                  <form >
+                  <form [formGroup]="withdrawPointValueForm" (ngSubmit)="onSubmit()">
                             <div class="form-row m-0">
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" autocomplete=""
                                     required
-                                    placeholder="" formControlName="firstName">
-                                    <!-- <div class="inputError" *ngIf="f.firstName.errors?.required">
-                                        First Name Required!
-                                    </div> -->
+                                    placeholder="" formControlName="point_value">
+                                   <div class="inputError" *ngIf="f.point_value.errors?.required && formSubmit">
+                                        Point value Required!
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                      <button type="submit" class="btn btn-primary mr-2">Update</button>
                                 </div>
                         </div>
-                  </form>
+                </form>
                   </div>
                </div>
+               
             </div>
+            
         </div>
+        
+    </div>
+<div class="content-body">
+        <div class="card">
+            <div class="card-body">
+               <div class="row">
+                <div class="col-md-12">
+                        <h1 class="header2">Referred User Points</h1>
+                </div>
+                 <div class="col-md-2 pt-2" style="font-size: 18px;">User Points</div>
+                 <div class="col-md-6">
+                  <form [formGroup]="userPointsValueForm" (ngSubmit)="onSubmitValue()">
+                            <div class="form-row m-0">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" autocomplete=""
+                                    required
+                                    placeholder="" formControlName="point_user">
+                                   <div class="inputError" *ngIf="g.point_user.errors?.required && formSubmitUser">
+                                        User Points Required!
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                     <button type="submit" class="btn btn-primary mr-2">Update</button>
+                                </div>
+                        </div>
+                </form>
+                  </div>
+               </div>
+               
+            </div>
+            
+        </div>
+        
     </div>
 
+    <div class="content-body">
+        <div class="card">
+            <div class="card-body">
+               <div class="row">
+                <div class="col-md-12">
+                        <h1 class="header2">Withdraw min Points</h1>
+                </div>
+                 <div class="col-md-2 pt-2" style="font-size: 18px;">Add Points</div>
+                 <div class="col-md-6">
+                  <form [formGroup]="userPointsminForm" (ngSubmit)="onSubmitminpoints()">
+                            <div class="form-row m-0">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" autocomplete=""
+                                    required
+                                    placeholder="" formControlName="min_points">
+                                   <div class="inputError" *ngIf="h.min_points.errors?.required && formSubmitminpoints">
+                                        min Points Required!
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                     <button type="submit" class="btn btn-primary mr-2">Update</button>
+                                </div>
+                        </div>
+                </form>
+                  </div>
+               </div>
+               
+            </div>
+            
+        </div>
+        
+    </div>
    
 
  

@@ -36,7 +36,7 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
 import { ToastrModule } from 'ngx-toastr';
 import { LegsidePipe } from './legside.pipe';
 import { SearchPipe } from './search.pipe';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -80,6 +80,7 @@ import { SearchPipe } from './search.pipe';
     NgbModule,
     HttpClientModule,
     ChartsModule,
+    NgxPaginationModule,
     ToastrModule.forRoot(),
   ],
   providers: [AuthGuardService],

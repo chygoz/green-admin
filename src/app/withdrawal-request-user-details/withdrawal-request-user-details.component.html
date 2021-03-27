@@ -8,44 +8,63 @@
          </div>
         <div class="row">
          <div class="col-12">
-          <table class="table">
+          <table class="table" *ngFor="let transaction of userwithdrawlist ">
               <tr>
-                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">User Name :</span></td>
-                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">Gabriel Samuel</span></td>
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Full Name :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;"> 
+                    {{transaction?.user_details[0].firstName}} {{transaction?.user_details[0].lastName}}</span></td>
               </tr>
               <tr>
                   <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Card Type :</span></td>
                   <td><span style="color: #000;font-weight: bold;font-size: 14px;">International</span></td>
               </tr>
                <tr>
-                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Records :</span></td>
-                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">45</span></td>
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Email Id :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;"> 
+                    {{transaction?.user_details[0].firstName}} {{transaction?.user_details[0].email}}</span></td>
+              </tr>
+              <tr>
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Mobile :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;"> 
+                    {{transaction?.user_details[0].firstName}} {{transaction?.user_details[0].mobile}}</span></td>
+              </tr>
+              <tr>
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Referral :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;"> 
+                  {{transaction?.user_details[0].referral}}</span></td>
               </tr>
                <tr>
-                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Referrals :</span></td>
-                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">10</span></td>
-              </tr>
-                 <tr>
-                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Withdrawal Request :</span></td>
-                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">$ 400</span></td>
-              </tr>
-                 <tr>
                   <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Payment Mode :</span></td>
-                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">Bank Transfer</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">{{transaction?.transfertype}} </span></td>
+              </tr>
+              
+                 <tr>
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">W.Points :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;"> {{transaction?.redeemedpoints}} </span></td>
+                  </tr>
+              
+                 <tr>
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">W.Amount:</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">{{transaction?.redeemedpoints * pointsprice}}</span></td>
               </tr>
                  <tr>
-                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Paccount Number :</span></td>
-                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">90501050172356</span></td>
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Status :</span></td>
+                  <td>
+                       <button type="button" *ngIf="transaction.status == 'completed'"
+                                class="btn btn-sm button-green">Completed</button>
+                                    <button type="button" *ngIf="transaction.status == 'pending'"
+                                class="btn btn-sm button-orange">Pending</button>
+                                <button type="button" *ngIf="transaction.status == 'cancelled'"
+                                class="btn btn-sm button-red">Pending</button>
+                    </td>
               </tr>
-                 <tr>
-                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Bank Code :</span></td>
-                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">SBICNGLX</span></td>
-              </tr>
+                
 
           </table>
-        <div class="pt-3">
-            <button type="button" class="btn btn-primary mr-2">Approved</button>
-            <button type="button" class="btn btn-default" >Decline </button>
+        <div class="pt-3" *ngFor="let transaction of userwithdrawlist ">
+            <button type="button" (click)="ApprovedStatus(transaction?._id)" class="btn btn-primary mr-2">Approved</button>
+            <button type="button" (click)="DesclainStatus(transaction?._id)"
+            class="btn btn-default" >Decline </button>
         </div>
          </div>
          

@@ -24,13 +24,16 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  onSubmit(){
+  onSubmit() {
     this.service.login(this.loginForm.value).subscribe((resp) => {
-      if(!resp.status) {
+      if (!resp.status) {
         this.errorMsg = resp.msg;
-      }else {
+      } else {
         //localStorage.setItem("token", resp.token);
         this.cookieService.setCookie('currentUser', JSON.stringify(resp.data), 1);
+        this.cookieService.setCookie('point_value', JSON.stringify(resp.points_to_currency), 1);
+        this.cookieService.setCookie('point_user', JSON.stringify(resp.points_to_user), 1);
+        this.cookieService.setCookie('min_points', JSON.stringify(resp.points_min_user), 1);
         this.cookieService.setCookie('token', resp.token, 1);
         this.router.navigate(['/dashboard']);
 

@@ -54,63 +54,43 @@
                  <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">User name</th>
+                            <th scope="col">User Details</th>
                             <th scope="col">Payment Mode</th>
-                            <th scope="col">Details</th>
-                            <th scope="col">Withdraw Amount</th>
+                            <th scope="col">TransactionID</th>
+                            <th scope="col">W.Points</th>
+                            <th scope="col">W.Amount</th>
                             <th scope="col">Status</th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">Grabriel Samuel</th>
-                            <td>Bank Transfer </td>
+                       <tr *ngFor="let transaction of userwithdrawlist | paginate: { itemsPerPage: 2,currentPage: q }">
+                            <th scope="row">
+                                {{transaction?.user_details[0].firstName}} {{transaction?.user_details[0].lastName}}
+                                <br />
+                                {{transaction?.user_details[0].email}}
+                            </th>
+                            <td> {{transaction?.transfertype}} </td>
                             <td>10501823541050</td>
-                            <td>$ 400</td>
+                            <td> {{transaction?.redeemedpoints}} </td>
+                                  <td>{{transaction?.redeemedpoints * pointsprice}}</td>
+                              <td>
+                                <button type="button" *ngIf="transaction.status == 'completed'"
+                                class="btn btn-sm button-green">Completed</button>
+                                    <button type="button" *ngIf="transaction.status == 'pending'"
+                                class="btn btn-sm button-orange">Pending</button>
+                                <button type="button" *ngIf="transaction.status == 'cancelled'"
+                                class="btn btn-sm button-red">Pending</button>
+                            </td>
                             <td>
-                                 <button class="btn btn-primary1" type="submit">Completed</button>
-                            </td>
-                            <td>
-                                 <a href="javasript:void(0)" (click)="userdetailsDialog()"  style="color: #07555c;font-weight: 600;text-decoration: underline;">
+                                 <a href="javasript:void(0)" (click)="userdetailsDialog(transaction._id)"
+                                   style="color: #07555c;font-weight: 600;text-decoration: underline;">
                                     View Details
                                 </a>
                             </td>
               </tr>
-               <tr>
-                            <th scope="row">Grabriel Samuel</th>
-                            <td>Bank Transfer </td>
-                            <td>10501823541050</td>
-                            <td>$ 400</td>
-                           
-                    <td>
-                      <button type="button" class="btn btn-outline-warning1">Pending
-                    </button>
-                  </td>
-                  <td>
-                                 <a href="javasript:void(0)" (click)="userdetailsDialog()"  style="color: #07555c;font-weight: 600;text-decoration: underline;">
-                                    View Details
-                                </a>
-                            </td>
-              </tr>
-               <tr>
-                            <th scope="row">Grabriel Samuel</th>
-                            <td>Bank Transfer </td>
-                            <td>10501823541050</td>
-                            <td>$ 400</td>
-                           
-                    <td>
-                      <button type="button" class="btn btn-outline-danger">Decline
-                      </button>
-                  </td>
-                  <td>
-                                  <a href="javasript:void(0)" (click)="userdetailsDialog()"  
-                                  style="color: #07555c;font-weight: 600;text-decoration: underline;">
-                                    View Details
-                                </a>
-                            </td>
-              </tr>
+              
               
               
 
@@ -125,16 +105,17 @@
 
     <div class="content-body">
     <div class="row">
-        <div class="col-12">
-                            <nav aria-label="Page navigation example" >
-                <ul class="pagination" style="float:right;">
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                   
-                </ul>
-                </nav>
-        </div>
+         <div class="col-12 px-0">
+                    <pagination-controls class="pagination pagination-lg"
+                    (pageChange)="q = $event"
+                     responsive="false"
+                      previousLabel=""
+                      nextLabel=""
+                    ></pagination-controls>
+
+
+                
+                </div>
     </div>
 </div>
 
