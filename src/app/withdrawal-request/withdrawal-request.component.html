@@ -14,7 +14,8 @@
                  <div class="row">
                    <div class="col-6">
                   <div class="input-group ">
-            <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input">
+            <input class="form-control py-2 border-right-0 border" type="search" [(ngModel)]="filter"
+            value="search" id="example-search-input">
             <span class="input-group-append">
                 <button class="btn btn-outline-secondary border-left-0 border" type="button">
                     <i class="fa fa-search"></i>
@@ -24,32 +25,31 @@
                   </div>
                    <div class="col-6">
                        <div class="row" >
-  <div class="col-4"></div>
+                         <div class="col-4"></div>
                         <div class="col-4">
-                           <mat-form-field appearance="fill">
-                                <mat-label>Sort By</mat-label>
-                                <mat-select>
-                                    <mat-option value="one" selected>Completed</mat-option>
-                                    <mat-option value="one">Pending</mat-option>
-                                    <mat-option value="one">Decline</mat-option>
-                                </mat-select>
-                                </mat-form-field>
+                            <select name="sort by" (change)="status_type($event)" class="form-control">
+                                <option value="">Select</option>
+                                <option value="pending" selected>Pending</option>
+                                <option value="completed">Completed</option>
+                                <option value="decline">Decline</option>
+                            </select>
+                          
                         </div>
                             <div class="col-4">
-                              <mat-form-field appearance="fill">
-                                <mat-label>Card Type</mat-label>
-                                <mat-select>
-                                    <mat-option value="one" selected>Local Card</mat-option>
-                            <mat-option value="one">Business Card</mat-option>
-                            <mat-option value="one">International Card</mat-option>
-                                </mat-select>
-                                </mat-form-field>
+
+                                  <select name="card_type" (change)="card_type($event)" class="form-control">
+                                <option value="">Select</option>
+                                <option value="local_card">Local Card</option>
+                                <option value="business_card">Business Card</option>
+                                <option value="international_card">International Card</option>
+                            </select>
+                            
                           </div>
                            
                         </div>
                    </div>
                 </div>
-                <div class="row">
+                <div class="row pt-5">
                   <div class="col-12">
                  <table class="table">
                     <thead>
@@ -65,12 +65,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                       <tr *ngFor="let transaction of userwithdrawlist | paginate: { itemsPerPage: 2,currentPage: q }">
-                            <th scope="row">
+                       <tr *ngFor="let transaction of userwithdrawlist | search: 'firstName,lastName, transfertype':filter | paginate: { itemsPerPage: 10,currentPage: q } ">
+                            <td>
                                 {{transaction?.user_details[0].firstName}} {{transaction?.user_details[0].lastName}}
-                                <br />
-                                {{transaction?.user_details[0].email}}
-                            </th>
+                               
+                            </td>
                             <td> {{transaction?.transfertype}} </td>
                             <td>10501823541050</td>
                             <td> {{transaction?.redeemedpoints}} </td>

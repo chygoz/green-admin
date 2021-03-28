@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+
     this.service.login(this.loginForm.value).subscribe((resp) => {
       if (!resp.status) {
         this.errorMsg = resp.msg;

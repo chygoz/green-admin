@@ -13,7 +13,11 @@ import { CookieService } from '../services/cookie.service';
 })
 export class WithdrawalRequestComponent implements OnInit {
   q: number = 1;
+  filter = '';
   userwithdrawlist;
+  status_type_value = 'pending';
+  card_type_value;
+  searchdata: boolean = false;
   pointsprice: number;
   constructor(location: Location,
     public dialog: MatDialog,
@@ -24,7 +28,7 @@ export class WithdrawalRequestComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getWithdrawAmountAll();
+    this.getWithdrawAmountAll(this.status_type_value, this.card_type_value, this.searchdata);
     this.getSettingsData();
   }
 
@@ -41,8 +45,8 @@ export class WithdrawalRequestComponent implements OnInit {
 
   }
 
-  getWithdrawAmountAll() {
-    this.service.getWithdrawAmountAll({}).subscribe((resp) => {
+  getWithdrawAmountAll(status_type_value, card_type_value, searchdata) {
+    this.service.getWithdrawAmountAll({ status_type: status_type_value, card_type: card_type_value, searchdata: searchdata }).subscribe((resp) => {
 
       if (resp.status) {
         this.userwithdrawlist = resp.data;
@@ -67,6 +71,20 @@ export class WithdrawalRequestComponent implements OnInit {
       }
     })
   }
+
+  status_type(event) {
+    this.status_type_value = event.target.value;
+    this.card_type_value = event.target.value;
+    this.searchdata = true;
+    this.getWithdrawAmountAll(this.status_type_value, this.card_type_value, this.searchdata);
+  }
+  card_type(event) {
+    this.card_type_value = event.target.value;
+    this.status_type_value = event.target.value;
+    this.searchdata = true;
+    this.getWithdrawAmountAll(this.status_type_value, this.card_type_value, this.searchdata);
+  }
+
 
 
 }
