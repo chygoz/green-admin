@@ -26,25 +26,26 @@
                    <div class="col-6">
                        <div class="row" >
                          <div class="col-4"></div>
+                          <div class="col-4">
+
+                                  <!--select name="card_type" (change)="card_type($event)" class="form-control">
+                                <option value="">Select</option>
+                                <option value="local_card">Local Card</option>
+                                <option value="business_card">Business Card</option>
+                                <option value="international_card">International Card</option>
+                            </select-->
+                            
+                          </div>
                         <div class="col-4">
                             <select name="sort by" (change)="status_type($event)" class="form-control">
                                 <option value="">Select</option>
                                 <option value="pending" selected>Pending</option>
                                 <option value="completed">Completed</option>
-                                <option value="decline">Decline</option>
+                                <option value="cancelled">Decline</option>
                             </select>
                           
                         </div>
-                            <div class="col-4">
-
-                                  <select name="card_type" (change)="card_type($event)" class="form-control">
-                                <option value="">Select</option>
-                                <option value="local_card">Local Card</option>
-                                <option value="business_card">Business Card</option>
-                                <option value="international_card">International Card</option>
-                            </select>
-                            
-                          </div>
+                           
                            
                         </div>
                    </div>

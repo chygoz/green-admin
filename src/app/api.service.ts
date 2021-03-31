@@ -176,6 +176,13 @@ export class apiService {
     headers = headers.append('Content-Type', 'application/json');
     return this.http.post(config.api_url + 'admin/ApprovedStatus', params);
   }
+  DesclineStatus(params): Observable<any> {
+    let token = this.cookieService.getCookie('token');
+    let headers = new HttpHeaders();
+    headers = headers.append('token', token);
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(config.api_url + 'admin/DesclineStatus', params);
+  }
 
 
   showSuccess(msg) {

@@ -50,9 +50,8 @@ export class WithdrawalRequestComponent implements OnInit {
 
       if (resp.status) {
         this.userwithdrawlist = resp.data;
-        console.log(this.userwithdrawlist);
       } else {
-
+        this.userwithdrawlist = [];
       }
     })
   }

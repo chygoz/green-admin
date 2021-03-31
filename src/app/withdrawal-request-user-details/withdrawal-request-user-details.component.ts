@@ -51,15 +51,22 @@ export class WithdrawalRequestUserDetailsComponent implements OnInit {
   ApprovedStatus(_id) {
     this.service.ApprovedStatus({ _id: _id }).subscribe((resp) => {
       if (resp.status) {
-
-        this.dialogRef.close();
+        this.service.showSuccess(resp.msg);
+        //  this.dialogRef.close();
       } else {
         this.service.showError(resp.msg);
       }
     })
   }
   DesclainStatus(_id) {
-
+    this.service.DesclineStatus({ _id: _id }).subscribe((resp) => {
+      if (resp.status) {
+        this.service.showSuccess(resp.msg);
+        //   this.dialogRef.close();
+      } else {
+        this.service.showError(resp.msg);
+      }
+    })
   }
 
 }
