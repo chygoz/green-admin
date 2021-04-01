@@ -21,12 +21,12 @@
                <tr>
                   <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Email Id :</span></td>
                   <td><span style="color: #000;font-weight: bold;font-size: 14px;"> 
-                    {{transaction?.user_details[0].firstName}} {{transaction?.user_details[0].email}}</span></td>
+                    {{transaction?.user_details[0].email}}</span></td>
               </tr>
               <tr>
                   <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Mobile :</span></td>
                   <td><span style="color: #000;font-weight: bold;font-size: 14px;"> 
-                    {{transaction?.user_details[0].firstName}} {{transaction?.user_details[0].mobile}}</span></td>
+                    {{transaction?.user_details[0].mobile}}</span></td>
               </tr>
               <tr>
                   <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Referral :</span></td>
@@ -62,9 +62,10 @@
 
           </table>
         <div class="pt-3" *ngFor="let transaction of userwithdrawlist ">
-            <button type="button" (click)="ApprovedStatus(transaction?._id)" class="btn btn-primary mr-2">Approved</button>
+            <button type="button" (click)="ApprovedStatus(transaction?._id)" 
+            class="btn btn-primary mr-2">Approved</button>
             <button type="button" (click)="DesclainStatus(transaction?._id)"
-            class="btn btn-default" >Decline </button>
+            class="btn btn-default" >Decline</button>
         </div>
          </div>
          
