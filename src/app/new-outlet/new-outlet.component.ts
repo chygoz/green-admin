@@ -28,12 +28,20 @@ export class NewOutletComponent implements OnInit {
   outletForm: FormGroup;
   formSubmit: boolean = false;
   merchants = [];
+  userData;
+  id: number;
   public emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  constructor(public fb: FormBuilder, private service: apiService, public dialogRef: MatDialogRef<NewOutletComponent>, private cookieService: CookieService) { }
+  constructor(public fb: FormBuilder, private service: apiService, public dialogRef: MatDialogRef<NewOutletComponent>, private cookieService: CookieService) {
+    this.userData = this.cookieService.getCookie('currentUser');
+    this.userData = JSON.parse(this.userData);
+    if (this.userData.role == "merchant") {
+      this.id = this.userData._id;
+    }
+  }
 
   ngOnInit(): void {
     this.outletForm = this.fb.group({
-      storeName: ['', Validators.required],
+      storeName: [''],
       email: ['', [Validators.required, Validators.pattern(this.emailregex)]],
       phoneNumber: ['', Validators.required],
       userName: ['', Validators.required],
@@ -44,6 +52,7 @@ export class NewOutletComponent implements OnInit {
     });
 
     this.getMerchants();
+
   }
 
   getMerchants() {
@@ -65,10 +74,14 @@ export class NewOutletComponent implements OnInit {
     if (!this.outletForm.valid) {
       return false;
     }
+    if (this.userData.role == "merchant") {
+      this.outletForm.value.storeName = this.id;
 
+    }
     this.service.createOutlet(this.outletForm.value).subscribe((resp) => {
       if (resp.status) {
         this.service.showSuccess(resp.msg);
+
         this.dialogRef.close();
       } else {
         this.service.showError(resp.msg);

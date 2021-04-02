@@ -8,10 +8,15 @@ import { CookieService } from '../services/cookie.service';
 })
 export class SidebarComponent implements OnInit {
   userData;
+  id: number;
   constructor(private cookieService: CookieService) {
     this.userData = this.cookieService.getCookie('currentUser');
     this.userData = JSON.parse(this.userData);
-   }
+
+    if (this.userData.role == "merchant") {
+      this.id = this.userData._id;
+    }
+  }
 
   ngOnInit(): void {
   }

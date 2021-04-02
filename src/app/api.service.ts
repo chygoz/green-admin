@@ -183,6 +183,38 @@ export class apiService {
     headers = headers.append('Content-Type', 'application/json');
     return this.http.post(config.api_url + 'admin/DesclineStatus', params);
   }
+  getUsersData(params): Observable<any> {
+    let token = this.cookieService.getCookie('token');
+    let headers = new HttpHeaders();
+    headers = headers.append('token', token);
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(config.api_url + 'admin/getUsersData', params);
+  }
+  getStoresData(params): Observable<any> {
+    let token = this.cookieService.getCookie('token');
+    let headers = new HttpHeaders();
+    headers = headers.append('token', token);
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(config.api_url + 'admin/getStoresData', params);
+  }
+  getOutletData(params): Observable<any> {
+    let token = this.cookieService.getCookie('token');
+    let headers = new HttpHeaders();
+    headers = headers.append('token', token);
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(config.api_url + 'admin/getOutletData', params);
+  }
+  getUserCardTypeData(params): Observable<any> {
+    let token = this.cookieService.getCookie('token');
+    let headers = new HttpHeaders();
+    headers = headers.append('token', token);
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(config.api_url + 'admin/getUserCardTypeData', params);
+  }
+
+  updateProfilePic(params): Observable<any> {
+    return this.http.post(config.api_url + 'admin/updateprofilepic', params);
+  }
 
 
   showSuccess(msg) {

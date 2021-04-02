@@ -17,6 +17,7 @@ export class OutletsComponent implements OnInit {
   filter = '';
   id: number;
   storeName;
+  q: number = 1;
   outlets = [];
   constructor(location: Location, public dialog: MatDialog, private router: Router,
     private cookieService: CookieService, private service: apiService, private route: ActivatedRoute) {
@@ -25,7 +26,6 @@ export class OutletsComponent implements OnInit {
     this.storeName = this.userData.storeName;
     if ("merchantId" in this.userData) {
       this.id = this.userData._id;
-
     }
 
   }
@@ -33,6 +33,8 @@ export class OutletsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params["id"];
+      console.log(this.id);
+
     });
     this.getOutlets(this.id);
 
@@ -56,6 +58,7 @@ export class OutletsComponent implements OnInit {
         position: { top: '100px' },
       });
     dialogRef.afterClosed().subscribe(() => {
+
     })
   }
 
@@ -67,7 +70,7 @@ export class OutletsComponent implements OnInit {
       });
 
     dialogRef.afterClosed().subscribe(() => {
-      this.getOutlets();
+      this.getOutlets(this.id);
     })
   }
 

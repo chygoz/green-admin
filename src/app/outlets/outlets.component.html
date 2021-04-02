@@ -7,9 +7,10 @@
             </div>
             <div class="col-6" style="text-align: right;">
 
-                  <a class="btn btn-link mr-4" href="javascript:void(0)" 
+                  <a *ngIf="userData.role == 'superAdmin'" class="btn btn-link mr-4" href="javascript:void(0)" 
                   routerLink = "/merchants">
-                    Back to Marchants List</a>
+                    Back to Marchants List
+                </a>
 
                 <button type="button" 
                  *ngIf="userData.role == 'merchant' "
@@ -56,7 +57,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let outlet of outlets | search: 'userName,email,phoneNumber':filter">
+                                <tr *ngFor="let outlet of outlets | search: 'userName,email,phoneNumber':filter | paginate: { itemsPerPage: 10,currentPage: q }">
                                     <td>{{outlet?.userName}}</td>
                                     <td>{{outlet?.email}}</td>
                                     <td>{{outlet?.phoneNumber}}</td>
@@ -91,16 +92,17 @@
 
     <div class="content-body">
         <div class="row">
-            <div class="col-12">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination" style="float:right;">
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <div class="col-12 px-0">
+                    <pagination-controls class="pagination pagination-lg"
+                    (pageChange)="q = $event"
+                     responsive="false"
+                      previousLabel=""
+                      nextLabel=""
+                    ></pagination-controls>
 
-                    </ul>
-                </nav>
-            </div>
+
+                
+                </div>
         </div>
     </div>
 

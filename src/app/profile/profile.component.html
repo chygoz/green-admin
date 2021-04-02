@@ -13,10 +13,15 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
-                        <img src="assets/images/menuuser.svg" alt="" width="150">
+                         <div *ngIf="cardImageBase64; else elseTemplate" >
+                             <img [src]="cardImageBase64" alt="" width="150" style="border-radius: 50%">
+                        </div>
+                          <ng-template #elseTemplate>
+                               <img src="assets/images/menuuser.svg" alt="" width="150" >
+                          </ng-template>
                         <div class="editoverlay">
                              <button class="file-upload-button">
-                        <input type="file" />
+                        <input type="file" (change)="fileChangeEvent($event)" />
                         <img src="assets/images/edit.png" alt="" width="35">
                     </button>
 

@@ -9,7 +9,10 @@ import { apiService } from '../api.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  userList;
+  storeList;
+  outletList;
+  userCardTypeData;
   public doughnutChartLabels: Label[] = [
     "Local Card",
     "Business Card",
@@ -74,12 +77,45 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStats()
+    this.getUsersData();
+    this.getStoresData();
+    this.getOutletData();
+    this.getUserCardTypeData();
   }
 
-  getStats(){
+  getStats() {
     this.service.getStats({}).subscribe((resp) => {
-      if(resp.status && resp.data[0]){
+      if (resp.status && resp.data[0]) {
         this.stats = resp.data[0];
+      }
+    })
+  }
+
+  getUsersData() {
+    this.service.getUsersData({ status: true }).subscribe((resp) => {
+      if (resp.status) {
+        this.userList = resp.data;
+      }
+    })
+  }
+  getStoresData() {
+    this.service.getStoresData({ status: true }).subscribe((resp) => {
+      if (resp.status) {
+        this.storeList = resp.data;
+      }
+    })
+  }
+  getOutletData() {
+    this.service.getOutletData({ status: true }).subscribe((resp) => {
+      if (resp.status) {
+        this.outletList = resp.data;
+      }
+    })
+  }
+  getUserCardTypeData() {
+    this.service.getUserCardTypeData({ status: true }).subscribe((resp) => {
+      if (resp.status) {
+        this.userCardTypeData = resp.data;
       }
     })
   }

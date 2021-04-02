@@ -39,7 +39,7 @@
           </a>
         </li>
         <li *ngIf="userData?.role == 'merchant'">
-          <a routerLink="/outlets" routerLinkActive="mm-active" class="waves-effect">
+          <a [routerLink]="['/outlets', id]" routerLinkActive="mm-active" class="waves-effect">
             <img src="assets/images/menu/outlet.svg" height="25">
             <span> Outlets </span>
           </a>
