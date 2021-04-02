@@ -73,7 +73,9 @@ export class DashboardComponent implements OnInit {
   ]
   stats: any;
 
-  constructor(private service: apiService) { }
+  constructor(private service: apiService) {
+
+  }
 
   ngOnInit(): void {
     this.getStats()

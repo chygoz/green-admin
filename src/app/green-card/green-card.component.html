@@ -21,13 +21,19 @@
           </div>
           <div class="col-6">
             <div style="float: right;">
-              <mat-form-field appearance="fill">
-                <mat-label>All Card Type</mat-label>
-                <mat-select>
-                  <mat-option value="one">Type 1</mat-option>
-                  <mat-option value="one">Type 2</mat-option>
-                </mat-select>
-              </mat-form-field>
+
+                <div class="form-row m-0">
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail4">All Card Type</label>
+                                <select class="form-control" formControlName="firstName">
+                                  <option value="">Select</option>
+                                  <option value="local_card">Local Card</option>
+                                  <option value="business_card">Business Card</option>
+                                  <option value="international_card">International Card</option>
+                                </select>
+                            </div>
+                  </div>
+             
             </div>
           </div>
 
