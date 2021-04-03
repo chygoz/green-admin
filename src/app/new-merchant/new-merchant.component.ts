@@ -38,7 +38,6 @@ export class NewMerchantComponent implements OnInit {
       storeName: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern(this.emailregex)]],
       phoneNumber: ['', Validators.required],
-      userName: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
     }, {

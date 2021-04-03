@@ -44,7 +44,6 @@ export class NewOutletComponent implements OnInit {
       storeName: [''],
       email: ['', [Validators.required, Validators.pattern(this.emailregex)]],
       phoneNumber: ['', Validators.required],
-      userName: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
     }, {

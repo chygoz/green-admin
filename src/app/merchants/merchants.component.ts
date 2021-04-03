@@ -15,6 +15,7 @@ import { apiService } from '../api.service';
 export class MerchantsComponent implements OnInit {
   userData;
   filter = '';
+  q: number = 1;
   merchants = [];
   constructor(location: Location, public dialog: MatDialog, private router: Router,
     private cookieService: CookieService, private service: apiService) {

@@ -50,7 +50,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let merchant of merchants | search: 'storeName,email,phoneNumber':filter">
+                                <tr *ngFor="let merchant of merchants | search: 'storeName,email,phoneNumber':filter | paginate: { itemsPerPage: 10,currentPage: q }">
                                     <th scope="row">{{merchant?.storeName}}</th>
                                     <td>{{merchant?.userName}}</td>
                                     <td>{{merchant?.email}}</td>
@@ -89,16 +89,14 @@
 
     <div class="content-body">
         <div class="row">
-            <div class="col-12">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination" style="float:right;">
-                        <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-
-                    </ul>
-                </nav>
-            </div>
+             <div class="col-12 px-0">
+                    <pagination-controls class="pagination pagination-lg"
+                    (pageChange)="q = $event"
+                     responsive="false"
+                      previousLabel=""
+                      nextLabel=""
+                    ></pagination-controls>
+        </div>
         </div>
     </div>
 

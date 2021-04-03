@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   submitted: boolean = false;
   loginForm: FormGroup;
+  userData;
   public emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   errorMsg = '';
   constructor(public fb: FormBuilder, private service: apiService, private router: Router, private cookieService: CookieService) { }
@@ -36,7 +37,12 @@ export class LoginComponent implements OnInit {
         this.cookieService.setCookie('point_user', JSON.stringify(resp.points_to_user), 1);
         this.cookieService.setCookie('min_points', JSON.stringify(resp.points_min_user), 1);
         this.cookieService.setCookie('token', resp.token, 1);
-        this.router.navigate(['/dashboard']);
+
+        if (resp.data.role == "merchant" || resp.data.role == "outlet") {
+          this.router.navigate(['/green-card']);
+        } else {
+          this.router.navigate(['/dashboard']);
+        }
 
       }
     })
