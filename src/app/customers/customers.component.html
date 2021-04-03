@@ -14,7 +14,9 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="input-group ">
-                            <input class="form-control py-2 border-right-0 border" type="search" [(ngModel)]="filter">
+                            <input class="form-control py-2 border-right-0 border"
+                            placeholder="Name, User Id, Email, Referral, Card  Type"
+                            type="search" [(ngModel)]="filter">
                             <span class="input-group-append">
                                 <button class="btn btn-outline-secondary border-left-0 border" type="button">
                                     <i class="fa fa-search"></i>
@@ -29,50 +31,41 @@
 
                             </div>
                             <div class="col-4">
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Sort By</mat-label>
-                                    <mat-select (selectionChange)="sortByData($event.value)">
-                                        <mat-option value="active" selected>Active</mat-option>
-                                        <mat-option value="blocked">Blocked</mat-option>
-                                    </mat-select>
-                                </mat-form-field>
+                                
                             </div>
                             <div class="col-4">
-                                <mat-form-field appearance="fill">
-                                    <mat-label>Card Type</mat-label>
-                                    <mat-select>
-                                        <mat-option value="one" selected>Local Card</mat-option>
-                                        <mat-option value="one">Business Card</mat-option>
-                                        <mat-option value="one">International Card</mat-option>
-                                    </mat-select>
-                                </mat-form-field>
+                                
                             </div>
 
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row pt-5">
                     <div class="col-12">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">User name</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">User Id</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Referral ID</th>
                                     <th scope="col">Card Type</th>
-                                    <th scope="col">Records</th>
-                                    <th scope="col">No. Of Referrals</th>
-                                    <th scope="col">Location</th>
+                                    
                                     <th scope="col">Status</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let user of users | search: 'firstName,lastName':filter">
-                                    <th scope="row">{{user?.firstName}} {{user?.lastName}}</th> 
-                                    <td>International </td>
-                                    <td>34</td>
-                                    <td>4</td>
-
-                                    <td>Location1</td>
+                                <tr *ngFor="let user of users | search: 'firstName,lastName,email,userId,referral,card_type':filter | paginate: { itemsPerPage: 10,currentPage: q }">
+                                    <th scope="row">
+                                        {{user?.firstName}} {{user?.lastName}}
+                                    <br />
+                                    <a [routerLink]="['/customer-details', user?.userId]" target="_blank" style="font-size: 12px; font-weight: 400;color: green;">View Network</a>
+                                    </th>
+                                     <th scope="row">{{user?.userId}}</th>  
+                                      <th scope="row">{{user?.email}}</th> 
+                                          <th scope="row">{{user?.referral}}</th> 
+                                    <th scope="row">{{user?.card_type}}</th> 
                                     <td>{{user?.blocked?'Blocked':'Active'}}</td>
                                     <td>
                                         <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="menu"
@@ -111,16 +104,14 @@
 
     <div class="content-body">
         <div class="row">
-            <div class="col-12">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination" style="float:right;">
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-
-                    </ul>
-                </nav>
-            </div>
+           <div class="col-12 px-0">
+                    <pagination-controls class="pagination pagination-lg"
+                    (pageChange)="q = $event"
+                     responsive="false"
+                      previousLabel=""
+                      nextLabel=""
+                    ></pagination-controls>
+        </div>
         </div>
     </div>
 

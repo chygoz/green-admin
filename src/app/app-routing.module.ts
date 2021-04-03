@@ -38,7 +38,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'customer-details', component: LayoutComponent,
+    path: 'customer-details/:id', component: LayoutComponent,
     children: [
       { path: '', component: CustomerDetailsComponent }
     ]

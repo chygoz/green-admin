@@ -11,7 +11,7 @@
           <div class="col-6">
             <div class="input-group ">
               <input class="form-control py-2 border-right-0 border" type="search" [(ngModel)]="userId"
-                placeholder="Enter User ID">
+                placeholder="Name, User ID, Email">
               <span class="input-group-append">
                 <button class="btn btn-outline-secondary border-left-0 border" type="button" (click)="getUserById()">
                   <i class="fa fa-search"></i>
@@ -22,7 +22,7 @@
           <div class="col-6">
             <div style="float: right;">
 
-                <div class="form-row m-0">
+                <div class="form-row m-0" style="display: none;">
                             <div class="form-group col-md-12">
                                 <label for="inputEmail4">All Card Type</label>
                                 <select class="form-control" formControlName="firstName">
@@ -67,6 +67,28 @@
   <div class="content-body">
     <div class="card">
       <div class="card-body">
+         <div class="row">
+                    
+                    <div class="col-8" style="text-align: right;">
+                        <div class="row" style="text-align: right;">
+                             <div class="col-6">
+                        <div class="input-group ">
+                            <input class="form-control py-2 border-right-0 border" 
+                            placeholder="Name, Email" type="search" [(ngModel)]="filter">
+                            <span class="input-group-append">
+                                <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-6" style="text-align: right;">
+                       
+                    </div>
+                           
+                        </div>
+                    </div>
+                </div>
         <div class="row">
           <div class="col-12">
             <h2 class="header2">Selected Records - <span style="color:#07555c">{{records.length}}</span></h2>
@@ -75,17 +97,18 @@
                 <tr>
                   <th scope="col">Name</th>
                   <th scope="col">User ID</th>
+                  <th scope="col">Email</th>
                   <th scope="col">Card Type</th>
-                  <th scope="col">Location</th>
                   <th scope="col">Time Stamp</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let record of records">
+                <tr *ngFor="let record of records | search: 'userName,email,phoneNumber':filter | paginate: { itemsPerPage: 10,currentPage: q }">
                   <th scope="row">{{record?.firstName}} {{record?.lastName}}</th>
                   <th scope="row">{{record?.userId}}</th>
+                       <th scope="row">{{record?.email}}</th>
                   <td>{{record?.card_type}} </td>
-                  <td>London</td>
+                
                   <td>{{record?.date | date: 'dd/mm/yyyy | hh:mm a'}}</td>
                 </tr>
               </tbody>
@@ -99,15 +122,13 @@
 
   <div class="content-body">
     <div class="row">
-      <div class="col-12">
-        <nav aria-label="Page navigation example">
-          <ul class="pagination" style="float:right;">
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-
-          </ul>
-        </nav>
+      <div class="col-12 px-0">
+                    <pagination-controls class="pagination pagination-lg"
+                    (pageChange)="q = $event"
+                     responsive="false"
+                      previousLabel=""
+                      nextLabel=""
+                    ></pagination-controls>
       </div>
     </div>
   </div>

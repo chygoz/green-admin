@@ -8,8 +8,10 @@ import { apiService } from '../api.service';
 })
 export class GreenCardComponent implements OnInit {
   userId;
+  filter = '';
   userData: any;
   records = [];
+  q: number = 1;
   constructor(private service: apiService) { }
 
   ngOnInit(): void {
@@ -17,15 +19,16 @@ export class GreenCardComponent implements OnInit {
   }
 
   getUserById() {
+
     if (this.userId) {
       let params = {
         userId: this.userId
       }
       this.service.getUserById(params).subscribe((resp) => {
-        if(resp.data.length > 0){
+        if (resp.data.length > 0) {
           this.userData = resp.data[0];
           console.log(this.userData);
-        }else {
+        } else {
           this.service.showError("User Not Found!")
           this.userData = null;
         }
@@ -33,24 +36,24 @@ export class GreenCardComponent implements OnInit {
     }
   }
 
-  grandDiscount(user){
-    this.service.grantDiscount({userId: user._id}).subscribe((resp) => {
+  grandDiscount(user) {
+    this.service.grantDiscount({ userId: user._id }).subscribe((resp) => {
       console.log(resp);
-      if(resp.status){
+      if (resp.status) {
         this.service.showSuccess(resp.msg);
         this.userData = null;
         this.userId = '';
         this.getDiscounts();
-      }else {
+      } else {
         this.service.showError(resp.msg);
       }
     })
   }
 
-  getDiscounts(){
+  getDiscounts() {
     this.service.getDiscounts({}).subscribe((resp) => {
       console.log(resp);
-      if(resp.status){
+      if (resp.status) {
         this.records = resp.data;
       }
     })
