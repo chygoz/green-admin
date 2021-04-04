@@ -19,20 +19,20 @@
                      <mat-form-field appearance="fill">
                         <mat-label>Select</mat-label>
                         <mat-select>
-                            <mat-option value="one" selected>Local Card</mat-option>
-                            <mat-option value="one">Business Card</mat-option>
-                            <mat-option value="one">International Card</mat-option>
+                            <mat-option *ngFor="let plan of plans" [value]="plan._id" >{{plan.cardtype}}</mat-option>
+                            <!-- <mat-option value="one">Business Card</mat-option>
+                            <mat-option value="one">International Card</mat-option> -->
                         </mat-select>
                         </mat-form-field>
                    </div>
-                   <div class="col-3">
+                   <!-- <div class="col-3">
                      <mat-form-field appearance="fill">
                         <mat-label>Select</mat-label>
                         <mat-select>
                             <mat-option value="one">London</mat-option>
                         </mat-select>
                         </mat-form-field>
-                   </div>
+                   </div> -->
                </div>
 
                 <div class="row">

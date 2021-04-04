@@ -216,6 +216,21 @@ export class apiService {
     return this.http.post(config.api_url + 'admin/updateprofilepic', params);
   }
 
+  getSubscribedUsersCount(params): Observable<any> {
+    let token = this.cookieService.getCookie('token');
+    let headers = new HttpHeaders();
+    headers = headers.append('token', token);
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(config.api_url + 'admin/getSubscribedUsersCount', params, { headers });
+  }
+  
+  getPlans(params): Observable<any> {
+    let token = this.cookieService.getCookie('token');
+    let headers = new HttpHeaders();
+    headers = headers.append('token', token);
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(config.api_url + 'admin/getPlans', params, { headers });
+  }
 
   showSuccess(msg) {
     this.toastr.success(msg, '', {
