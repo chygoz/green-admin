@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   cardImageBase64: string;
   profilepicdata: {};
   constructor(private cookieService: CookieService, private fb: FormBuilder, private service: apiService) {
-    this.userData = this.cookieService.getCookie('currentUser');
+    this.userData = localStorage.getItem('currentUser');
     this.userData = JSON.parse(this.userData);
     this.cardImageBase64 = this.userData.profilepic;
     console.log(this.cardImageBase64);
@@ -35,17 +35,18 @@ export class ProfileComponent implements OnInit {
       zipCode: [''],
       country: [''],
       address: [''],
+      _id:['']
     })
 
     this.profileForm.patchValue(this.userData);
-    this.service.updateAdmin(this.profileForm.value).subscribe((resp) => {
-      if (resp.status) {
-        this.cookieService.setCookie('currentUser', JSON.stringify(resp.data), 1);
-        this.service.showSuccess(resp.msg);
-      } else {
-        this.service.showError(resp.msg);
-      }
-    })
+    // this.service.updateAdmin(this.profileForm.value).subscribe((resp) => {
+    //   if (resp.status) {
+    //     this.cookieService.setCookie('currentUser', JSON.stringify(resp.data), 1);
+    //     this.service.showSuccess(resp.msg);
+    //   } else {
+    //     this.service.showError(resp.msg);
+    //   }
+    // })
   }
 
   get f() {
@@ -61,7 +62,7 @@ export class ProfileComponent implements OnInit {
     this.profileForm.value._id = this.userData._id;
     this.service.updateAdmin(this.profileForm.value).subscribe((resp) => {
       if (resp.status) {
-        this.cookieService.setCookie('currentUser', JSON.stringify(resp.data), 1);
+        localStorage.setItem('currentUser', JSON.stringify(resp.data));
         this.service.showSuccess(resp.msg);
       } else {
         this.service.showError(resp.msg);

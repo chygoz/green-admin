@@ -21,7 +21,7 @@ export class OutletsComponent implements OnInit {
   outlets = [];
   constructor(location: Location, public dialog: MatDialog, private router: Router,
     private cookieService: CookieService, private service: apiService, private route: ActivatedRoute) {
-    this.userData = this.cookieService.getCookie('currentUser');
+    this.userData = localStorage.getItem('currentUser');
     this.userData = JSON.parse(this.userData);
     this.storeName = this.userData.storeName;
     if ("merchantId" in this.userData) {

@@ -25,7 +25,7 @@ export class SettingsComponent implements OnInit {
   formSubmitminpoints: boolean = false;
   constructor(private cookieService: CookieService, private fb:
     FormBuilder, private service: apiService) {
-    this.userData = this.cookieService.getCookie('currentUser');
+    this.userData = localStorage.getItem('currentUser');
     this.userData = JSON.parse(this.userData);
 
     this.point_value_data = this.cookieService.getCookie('point_value');

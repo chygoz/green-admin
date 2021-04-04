@@ -27,7 +27,6 @@ export class GreenCardComponent implements OnInit {
       this.service.getUserById(params).subscribe((resp) => {
         if (resp.data.length > 0) {
           this.userData = resp.data[0];
-          console.log(this.userData);
         } else {
           this.service.showError("User Not Found!")
           this.userData = null;
@@ -38,7 +37,6 @@ export class GreenCardComponent implements OnInit {
 
   grandDiscount(user) {
     this.service.grantDiscount({ userId: user._id }).subscribe((resp) => {
-      console.log(resp);
       if (resp.status) {
         this.service.showSuccess(resp.msg);
         this.userData = null;
@@ -52,7 +50,6 @@ export class GreenCardComponent implements OnInit {
 
   getDiscounts() {
     this.service.getDiscounts({}).subscribe((resp) => {
-      console.log(resp);
       if (resp.status) {
         this.records = resp.data;
       }

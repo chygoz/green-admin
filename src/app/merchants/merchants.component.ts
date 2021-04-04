@@ -19,7 +19,7 @@ export class MerchantsComponent implements OnInit {
   merchants = [];
   constructor(location: Location, public dialog: MatDialog, private router: Router,
     private cookieService: CookieService, private service: apiService) {
-    this.userData = this.cookieService.getCookie('currentUser');
+    this.userData = localStorage.getItem('currentUser');
     this.userData = JSON.parse(this.userData);
 
   }
