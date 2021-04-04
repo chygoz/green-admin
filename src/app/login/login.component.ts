@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         this.errorMsg = resp.msg;
       } else {
         //localStorage.setItem("token", resp.token);
-        this.cookieService.setCookie('currentUser', JSON.stringify(resp.data), 1);
+        localStorage.setItem('currentUser', JSON.stringify(resp.data));
         this.cookieService.setCookie('point_value', JSON.stringify(resp.points_to_currency), 1);
         this.cookieService.setCookie('point_user', JSON.stringify(resp.points_to_user), 1);
         this.cookieService.setCookie('min_points', JSON.stringify(resp.points_min_user), 1);

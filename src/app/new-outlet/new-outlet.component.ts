@@ -32,7 +32,7 @@ export class NewOutletComponent implements OnInit {
   id: number;
   public emailregex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   constructor(public fb: FormBuilder, private service: apiService, public dialogRef: MatDialogRef<NewOutletComponent>, private cookieService: CookieService) {
-    this.userData = this.cookieService.getCookie('currentUser');
+    this.userData = localStorage.getItem('currentUser');
     this.userData = JSON.parse(this.userData);
     if (this.userData.role == "merchant") {
       this.id = this.userData._id;

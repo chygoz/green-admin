@@ -10,7 +10,7 @@ import { CookieService } from '../services/cookie.service';
 export class HeaderComponent implements OnInit {
   userData;
   constructor(private router: Router, private cookieService: CookieService) {
-    this.userData = this.cookieService.getCookie('currentUser');
+    this.userData = localStorage.getItem('currentUser');
     this.userData = JSON.parse(this.userData);
    }
 
