@@ -18,7 +18,7 @@
                    <div class="col-3">
                      <mat-form-field appearance="fill">
                         <mat-label>Select</mat-label>
-                        <mat-select>
+                        <mat-select (selectionChange)="selectedCard($event.value)">
                             <mat-option *ngFor="let plan of plans" [value]="plan._id" >{{plan.cardtype}}</mat-option>
                             <!-- <mat-option value="one">Business Card</mat-option>
                             <mat-option value="one">International Card</mat-option> -->
@@ -35,14 +35,14 @@
                    </div> -->
                </div>
 
-                <div class="row">
+                <div class="row" *ngIf="this.selectedPlan">
                    <div class="col-12 pt-3">
-                    <h3 class="header3">Local Card | 320 </h3>
+                    <h3 class="header3">{{this.selectedPlan?.cardtype}} | {{this.selectedPlan?.subscribedUsers}} </h3>
                    </div>
                     <div class="col-12 pt-1 pb-4">
                     <div class="progress">
                         <div class="progress-bar" 
-                        role="progressbar" style="width: 50%" aria-valuenow="50"
+                        role="progressbar" [style.width.%]="this.selectedPlan?.percent" aria-valuenow="this.selectedPlan?.percent"
                          aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
