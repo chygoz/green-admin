@@ -115,9 +115,13 @@ export class DashboardComponent implements OnInit {
     })
   }
   getUserCardTypeData() {
-    this.service.getUserCardTypeData({ status: true }).subscribe((resp) => {
+    this.service.getSubscribedUsersCount({ }).subscribe((resp) => {
       if (resp.status) {
         this.userCardTypeData = resp.data;
+        let localData = this.userCardTypeData.find(ld => ld.sku == "local_card");
+        let businessCard = this.userCardTypeData.find(ld => ld.sku == "business_card");
+        let internationalCard = this.userCardTypeData.find(ld => ld.sku == "business_card");
+        this.doughnutChartData = [[localData.subscribedUsers, businessCard.subscribedUsers, internationalCard.subscribedUsers]];
       }
     })
   }
