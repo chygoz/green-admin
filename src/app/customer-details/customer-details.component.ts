@@ -43,7 +43,6 @@ export class CustomerDetailsComponent implements OnInit {
   gerNetworkById(params) {
     if (params) {
       this.service.getNetworkByUserId(params).subscribe((resp) => {
-        console.log(resp);
         this.allNetworks = resp.data
         this.networks = resp.data;
         this.networks = this.networks.filter(nw => nw.show_below == this.userData._id);

@@ -64,7 +64,6 @@ export class NewMerchantComponent implements OnInit {
       }
     })
 
-    console.log(this.merchantForm.value);
   }
 
 

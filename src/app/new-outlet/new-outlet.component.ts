@@ -58,7 +58,6 @@ export class NewOutletComponent implements OnInit {
     this.service.getMerchants({}).subscribe((resp) => {
       if (resp.status) {
         this.merchants = resp.data;
-        console.log(this.merchants);
       }
 
     })
@@ -87,7 +86,6 @@ export class NewOutletComponent implements OnInit {
       }
     })
 
-    console.log(this.outletForm.value);
   }
 
 }

@@ -21,7 +21,6 @@ export class ProfileComponent implements OnInit {
     this.userData = localStorage.getItem('currentUser');
     this.userData = JSON.parse(this.userData);
     this.cardImageBase64 = this.userData.profilepic;
-    console.log(this.cardImageBase64);
   }
 
   ngOnInit(): void {
@@ -98,9 +97,6 @@ export class ProfileComponent implements OnInit {
         image.onload = rs => {
           const img_height = rs.currentTarget['height'];
           const img_width = rs.currentTarget['width'];
-
-          console.log(img_height, img_width);
-
 
           if (img_height > max_height && img_width > max_width) {
             this.imageError =

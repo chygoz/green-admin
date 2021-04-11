@@ -24,12 +24,13 @@
             <li class="nav-item dropdown" style="padding-top: 10px;">
                 <a class="nav-link" href="javascript:void(0)" 
                 [matMenuTriggerFor]="menu" 
-                #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()" 
+                #menuTrigger="matMenuTrigger" (click)="menuTrigger.openMenu()" 
                 id="navbarDropdownMenuLink" 
                 data-toggle="dropdown" aria-haspopup="true" 
                 aria-expanded="false" style="outline: none;font-size: 12px;color: #000  ;">
-                {{userData?.firstName}} {{userData?.lastName}}
-                  <img src="assets/images/down-arrow.png" alt="" width="15">
+                <span *ngIf="userData?.role == 'merchant'">Merchant</span>
+                <span *ngIf="userData?.role != 'merchant'">{{userData?.firstName}} {{userData?.lastName}}</span>
+                  <img style="margin-left:10px" src="assets/images/down-arrow.png" alt="" width="15">
                 </a>
                
                 <mat-menu #menu="matMenu" [overlapTrigger]="false">

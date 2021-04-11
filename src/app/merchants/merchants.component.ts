@@ -33,7 +33,6 @@ export class MerchantsComponent implements OnInit {
 
       if (resp.status) {
         this.merchants = resp.data;
-        console.log(this.merchants);
       }
 
     })

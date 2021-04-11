@@ -33,7 +33,6 @@ export class OutletsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params["id"];
-      console.log(this.id);
 
     });
     this.getOutlets(this.id);
@@ -45,7 +44,6 @@ export class OutletsComponent implements OnInit {
     this.service.getOutlets({ _id: id }).subscribe((resp) => {
       if (resp.status) {
         this.outlets = resp.data;
-        console.log(this.outlets);
       }
     })
   }

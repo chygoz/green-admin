@@ -25,7 +25,7 @@
                 <div class="form-row m-0" style="display: none;">
                             <div class="form-group col-md-12">
                                 <label for="inputEmail4">All Card Type</label>
-                                <select class="form-control" formControlName="firstName">
+                                <select class="form-control">
                                   <option value="">Select</option>
                                   <option value="local_card">Local Card</option>
                                   <option value="business_card">Business Card</option>
@@ -91,7 +91,7 @@
                 </div>
         <div class="row">
           <div class="col-12">
-            <h2 class="header2">Selected Records - <span style="color:#07555c">{{records.length}}</span></h2>
+            <h2 class="header2">Selected Records - <span style="color:#07555c">{{records?.length}}</span></h2>
             <table class="table">
               <thead>
                 <tr>
@@ -104,12 +104,11 @@
               </thead>
               <tbody>
                 <tr *ngFor="let record of records | search: 'userName,email,phoneNumber':filter | paginate: { itemsPerPage: 10,currentPage: q }">
-                  <th scope="row">{{record?.firstName}} {{record?.lastName}}</th>
-                  <th scope="row">{{record?.userId}}</th>
-                       <th scope="row">{{record?.email}}</th>
-                  <td>{{record?.card_type}} </td>
-                
-                  <td>{{record?.date | date: 'dd/mm/yyyy | hh:mm a'}}</td>
+                  <td scope="row">{{record?.firstName}} {{record?.lastName}}</td>
+                  <td scope="row">{{record?.userId}}</td>
+                  <td scope="row">{{record?.email}}</td>
+                  <td>{{record?.card_type}} </td>                
+                  <td>{{record?.date | date: 'dd/mm/yyyy hh:mm a'}}</td>
                 </tr>
               </tbody>
             </table>
