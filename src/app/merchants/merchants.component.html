@@ -42,7 +42,6 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Merchant name</th>
-                                    <th scope="col">Username</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Phone Number</th>
                                     <th scope="col">No. Of Outlets</th>
@@ -52,7 +51,6 @@
                             <tbody>
                                 <tr *ngFor="let merchant of merchants | search: 'storeName,email,phoneNumber':filter | paginate: { itemsPerPage: 10,currentPage: q }">
                                     <th scope="row">{{merchant?.storeName}}</th>
-                                    <td>{{merchant?.userName}}</td>
                                     <td>{{merchant?.email}}</td>
                                     <td>{{merchant?.phoneNumber}}</td>
                                     <td>{{merchant?.OutletsCount}}</td>
