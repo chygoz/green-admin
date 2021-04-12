@@ -37,6 +37,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { LegsidePipe } from './legside.pipe';
 import { SearchPipe } from './search.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 
 
@@ -64,6 +66,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CustomerDetailsComponent,
     LegsidePipe,
     SearchPipe,
+    ResetpasswordComponent,
+    ForgotpasswordComponent,
 
   ],
   imports: [

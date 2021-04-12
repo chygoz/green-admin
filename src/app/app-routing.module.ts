@@ -11,12 +11,16 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GreenCardComponent } from './green-card/green-card.component';
 import { MerchantsComponent } from './merchants/merchants.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { WithdrawalRequestComponent } from './withdrawal-request/withdrawal-request.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'forgotpassword', component: ForgotpasswordComponent },
+  { path: 'resetpassword/:id', component: ResetpasswordComponent },
   {
     path: 'dashboard', component: LayoutComponent,
     canActivate: [AuthGuard],

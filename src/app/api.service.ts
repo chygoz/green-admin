@@ -19,6 +19,13 @@ export class apiService {
   register(params): Observable<any> {
     return this.http.post(config.api_url + 'admin/register', params);
   }
+  forgotpassword(params): Observable<any> {
+    return this.http.post(config.api_url + 'admin/forgotpassword', params);
+  }
+  resetPassword(params): Observable<any> {
+    return this.http.post(config.api_url + 'admin/resetPassword', params);
+  }
+
   insertPointValue(params): Observable<any> {
     return this.http.post(config.api_url + 'admin/insertpointvalue', params);
   }
@@ -223,7 +230,7 @@ export class apiService {
     headers = headers.append('Content-Type', 'application/json');
     return this.http.post(config.api_url + 'admin/getSubscribedUsersCount', params, { headers });
   }
-  
+
   getPlans(params): Observable<any> {
     let token = this.cookieService.getCookie('token');
     let headers = new HttpHeaders();
