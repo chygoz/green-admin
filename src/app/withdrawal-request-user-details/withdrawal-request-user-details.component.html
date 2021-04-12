@@ -7,7 +7,8 @@
          </div>
          </div>
         <div class="row">
-         <div class="col-12">
+         <div class="col-12" style="    overflow: scroll x;
+    max-height: 501px;">
           <table class="table" *ngFor="let transaction of userwithdrawlist ">
               <tr>
                   <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Full Name :</span></td>
@@ -37,6 +38,36 @@
                   <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Payment Mode :</span></td>
                   <td><span style="color: #000;font-weight: bold;font-size: 14px;">{{transaction?.transfertype}} </span></td>
               </tr>
+              <tr *ngIf="transaction?.transfertype == 'Bank Transfer'">
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Account Name :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">{{transaction?.user_details[0].accountName}} </span></td>
+              </tr>
+              <tr *ngIf="transaction?.transfertype == 'Bank Transfer'">
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Account Number :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">{{transaction?.user_details[0].accountNumber}} </span></td>
+              </tr>
+              <tr *ngIf="transaction?.transfertype == 'Bank Transfer'">
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Bank :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">{{transaction?.user_details[0].bankName}} </span></td>
+              </tr>
+                    <tr *ngIf="transaction?.transfertype == 'Bank Transfer'">
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">IFSC Code :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">{{transaction?.user_details[0].ifscCode}} </span></td>
+              </tr>
+                 <tr *ngIf="transaction?.transfertype == 'Mobile Money'">
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Phone Number :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">{{transaction?.user_details[0].mobilemoneyphone}} </span></td>
+              </tr>
+              <tr *ngIf="transaction?.transfertype == 'Mobile Money'">
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Platform :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">{{transaction?.user_details[0].orangemoney}} </span></td>
+              </tr>
+                <tr *ngIf="transaction?.transfertype == 'Cryptocurrency'">
+                  <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">Platform :</span></td>
+                  <td><span style="color: #000;font-weight: bold;font-size: 14px;">{{transaction?.user_details[0].wallet_address}} </span></td>
+              </tr>
+
+              
               
                  <tr>
                   <td width="20%"><span style="color: #9d9d9d;font-size: 14px;">W.Points :</span></td>
