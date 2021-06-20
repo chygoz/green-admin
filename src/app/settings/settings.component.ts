@@ -31,21 +31,21 @@ export class SettingsComponent implements OnInit {
     this.point_value_data = this.cookieService.getCookie('point_value');
     this.point_value_data = JSON.parse(this.point_value_data);
 
-    if (this.point_value_data) {
+    if (this.point_value_data.length != 0) {
       this.point_value = this.point_value_data[0].point_value;
     }
 
     this.point_user_data = this.cookieService.getCookie('point_user');
     this.point_user_data = JSON.parse(this.point_user_data);
 
-    if (this.point_user_data) {
+    if (this.point_user_data != 0) {
       this.point_user = this.point_user_data[0].point_user;
     }
 
     this.point_min_data = this.cookieService.getCookie('min_points');
     this.point_min_data = JSON.parse(this.point_min_data);
 
-    if (this.point_min_data) {
+    if (this.point_min_data != 0) {
       this.min_points = this.point_min_data[0].min_points;
     }
 
