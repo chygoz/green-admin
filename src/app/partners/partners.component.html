@@ -1,0 +1,108 @@
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="header1">Merchants</h2>
+            </div>
+            <div class="col-6" style="text-align: right;">
+
+                <button type="button" *ngIf="userData?.role == 'superAdmin'" class="btn btn-secondary" (click)="newmarchantDialog()"><i
+                        class="fa fa-plus"></i>
+                    Add New Parnter</button>
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="input-group">
+                            <input class="form-control py-2 border-right-0
+                                border" placeholder="name,phoneNumber,Category,type" type="search" [(ngModel)]="filter">
+                            <span class="input-group-append">
+                                <button class="btn btn-outline-secondary
+                                    border-left-0 border" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-6" style="text-align: right;">
+
+                    </div>
+                </div>
+                <div class="row pt-4">
+                    <div class="col-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Percent</th>
+                                    <th scope="col">Priority</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let partner of partners | search:
+                                    'name,phoneNumber,Category,type':filter |
+                                    paginate: { itemsPerPage: 10,currentPage: q
+                                    }">
+                                    <th scope="row">{{partner?.name}}</th>
+                                    <td>{{partner?.phoneNumber}}</td>
+                                    <td>{{partner?.address}}</td>
+                                    <td>{{partner?.Category}}</td>
+                                    <td>{{partner?.type}}</td>
+                                    <td>{{partner?.percentage}}</td>
+                                    <td>{{partner?.priority}}</td>
+
+
+                                    <td>
+                                        <a class="nav-link" href="javascript:void(0)" [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (click)="menuTrigger.openMenu()" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="outline: none;font-size:
+                                            12px;color: #000 ;">
+                                            <img src="assets/images/doted.svg" alt="user" width="20">
+                                        </a>
+                                        <mat-menu #menu="matMenu" [overlapTrigger]="false">
+                                            <span (mouseleave)="menuTrigger.closeMenu()">
+                                                <button mat-menu-item
+                                                    (click)="editPartners(partner?._id)">
+                                                    <span> <i class="fa
+                                                            fa-pencil"></i>
+                                                        &nbsp;
+                                                        Edit</span>
+                                            </button>
+                                            <button mat-menu-item (click)="deletePartners(partner?._id)">
+                                                    <span> <i class="fa
+                                                            fa-trash"></i>
+                                                        &nbsp;
+                                                        Delete</span>
+                                                </button>
+                                            </span>
+                                        </mat-menu>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-body">
+        <div class="row">
+            <div class="col-12 px-0">
+                <pagination-controls class="pagination pagination-lg" (pageChange)="q= $event" responsive="false" previousLabel="" nextLabel=""></pagination-controls>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

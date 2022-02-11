@@ -1,81 +1,89 @@
 <!-- ========== Left Sidebar Start ========== -->
 <div class="left side-menu">
-  <div class="slimscroll-menu" id="remove-scroll">
+    <div class="slimscroll-menu" id="remove-scroll">
 
-    <!--- Sidemenu -->
-    <div id="sidebar-menu">
-      <!-- Left Menu Start -->
-      <ul class="metismenu" id="side-menu">
-        <li class="menu-title">Menus</li>
-        <li *ngIf="userData?.role == 'superAdmin'">
-          <a routerLink="/dashboard" routerLinkActive="mm-active" class="waves-effect">
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+            <!-- Left Menu Start -->
+            <ul class="metismenu" id="side-menu">
+                <li class="menu-title">Menus</li>
+                <li *ngIf="userData?.role == 'superAdmin'">
+                    <a routerLink="/dashboard" routerLinkActive="mm-active" class="waves-effect">
 
-            <img src="assets/images/menu/dashboard.svg" height="25">
-            <span> Dashboard </span>
-          </a>
-        </li>
+                        <img src="assets/images/menu/dashboard.svg" height="25">
+                        <span> Dashboard </span>
+                    </a>
+                </li>
 
-         <li *ngIf="userData?.role == 'merchant' || userData?.role == 'outlet'">
-          <a routerLink="/green-card" routerLinkActive="mm-active" class="waves-effect">
-            <img src="assets/images/menu/card.svg" height="25">
-            <span> Green Card </span>
-          </a>
-        </li>
-        <li *ngIf="userData?.role == 'superAdmin' || userData?.role == 'merchant'">
-          <a routerLink="/analytics" routerLinkActive="mm-active" class="waves-effect">
-            <img src="assets/images/menu/analytics.svg" height="25">
-            <span> Analytics </span>
-          </a>
-        </li>
-        <li *ngIf="userData?.role == 'superAdmin'">
-          <a routerLink="/customers" routerLinkActive="mm-active" class="waves-effect">
-            <img src="assets/images/menu/user.svg" height="25">
-            <span> Customers </span>
-          </a>
-        </li>
-        
-        <li *ngIf="userData?.role == 'superAdmin'">
-          <a routerLink="/merchants" routerLinkActive="mm-active" class="waves-effect">
-            <img src="assets/images/menu/merchant.svg" height="25">
-            <span> Merchants </span>
-          </a>
-        </li>
-        <li *ngIf="userData?.role == 'merchant'">
-          <a [routerLink]="['/outlets', id]" routerLinkActive="mm-active" class="waves-effect">
-            <img src="assets/images/menu/outlet.svg" height="25">
-            <span> Outlets </span>
-          </a>
-        </li>
-        <li *ngIf="userData?.role == 'superAdmin'">
-          <a routerLink="/withdrawal-request" routerLinkActive="mm-active" class="waves-effect">
-            <img src="assets/images/menu/atm.svg" height="25">
-            <span> Withdrawal Request </span>
-          </a>
-        </li>
-        <li *ngIf="userData?.role == 'superAdmin'">
-          <a routerLink="/settings" routerLinkActive="mm-active" class="waves-effect">
-            <img src="assets/images/menu/settings.svg" height="25">
-            <span> Settings </span>
-          </a>
-        </li>
-        <li>
-          <a routerLink="/profile" routerLinkActive="mm-active" class="waves-effect">
-            <img src="assets/images/menu/user1.svg" height="25">
-            <span> Profile </span>
-          </a>
-        </li>
-       
-       
+                <li *ngIf="userData?.role == 'merchant' || userData?.role == 'outlet'">
+                    <a routerLink="/green-card" routerLinkActive="mm-active" class="waves-effect">
+                        <img src="assets/images/menu/card.svg" height="25">
+                        <span> Green Card </span>
+                    </a>
+                </li>
+                <li *ngIf="userData?.role == 'superAdmin' || userData?.role ==
+          'merchant'">
+                    <a routerLink="/analytics" routerLinkActive="mm-active" class="waves-effect">
+                        <img src="assets/images/menu/analytics.svg" height="25">
+                        <span> Analytics </span>
+                    </a>
+                </li>
+                <li *ngIf="userData?.role == 'superAdmin'">
+                    <a routerLink="/customers" routerLinkActive="mm-active" class="waves-effect">
+                        <img src="assets/images/menu/user.svg" height="25">
+                        <span> Customers </span>
+                    </a>
+                </li>
+
+                <li *ngIf="userData?.role == 'superAdmin'">
+                    <a routerLink="/merchants" routerLinkActive="mm-active" class="waves-effect">
+                        <img src="assets/images/menu/merchant.svg" height="25">
+                        <span> Merchants </span>
+                    </a>
+                </li>
+                <li *ngIf="userData?.role == 'merchant'">
+                    <a [routerLink]="['/outlets', id]" routerLinkActive="mm-active" class="waves-effect">
+                        <img src="assets/images/menu/outlet.svg" height="25">
+                        <span> Outlets </span>
+                    </a>
+                </li>
+                <li *ngIf="userData?.role == 'superAdmin'">
+                    <a routerLink="/withdrawal-request" routerLinkActive="mm-active" class="waves-effect">
+                        <img src="assets/images/menu/atm.svg" height="25">
+                        <span> Withdrawal Request </span>
+                    </a>
+                </li>
+                <li *ngIf="userData?.role == 'superAdmin'">
+                    <a routerLink="/partners" routerLinkActive="mm-active" class="waves-effect">
+                        <img src="assets/images/menu/user.svg" height="25">
+                        <span> Partners </span>
+                    </a>
+                </li>
+                <li *ngIf="userData?.role == 'superAdmin'">
+                    <a routerLink="/settings" routerLinkActive="mm-active" class="waves-effect">
+                        <img src="assets/images/menu/settings.svg" height="25">
+                        <span> Settings </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a routerLink="/profile" routerLinkActive="mm-active" class="waves-effect">
+                        <img src="assets/images/menu/user1.svg" height="25">
+                        <span> Profile </span>
+                    </a>
+                </li>
 
 
-      </ul>
+
+
+            </ul>
+
+        </div>
+        <!-- Sidebar -->
+        <div class="clearfix"></div>
 
     </div>
-    <!-- Sidebar -->
-    <div class="clearfix"></div>
-
-  </div>
-  <!-- Sidebar -left -->
+    <!-- Sidebar -left -->
 
 </div>
 <!-- Left Sidebar End -->

@@ -1,0 +1,124 @@
+<div class="default-padding-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="header1">New Partner</h1>
+                <div class="default-padding">
+                    <form [formGroup]="merchantForm" (ngSubmit)="onSubmit()">
+                        <div class="form-row m-0 pt-3">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Name</label>
+                                <input type="text" class="form-control" formControlName="name" placeholder="">
+                                <div class="inputError" *ngIf="f.name.errors?.required &&
+                                    formSubmit">
+                                    Name Required!
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Upload Photo</label>
+                                <input type="file" class="form-control" (change)="fileChangeEventDocument($event)" formControlName="photo" placeholder="">
+                                <div class="inputError" *ngIf="f.photo.errors?.required &&
+                                    formSubmit">
+                                    Photo Required!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row m-0">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Phone Number</label>
+                                <input type="text" class="form-control" formControlName="phoneNumber" placeholder="Phone Number">
+                                <div class="inputError" *ngIf="f.phoneNumber.errors?.required &&
+                                    formSubmit">
+                                    Phone Number Required!
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Address</label>
+                                <input type="text" class="form-control" formControlName="address" placeholder="">
+                                <div class="inputError" *ngIf="f.address.errors?.required &&
+                                    formSubmit">
+                                    Address Required!
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-row m-0 pt-3">
+
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Category</label>
+                                <select class="form-control" formControlName="Category">
+                                    <option value="">Choose Category</option>
+                                    <option value="Hospitals">Hospitals</option>
+                                    <option value="Restaurants">Restaurants</option>
+                                    <option value="Hotels & Apartments">Hotels &
+                                        Apartments</option>
+                                    <option value="Supermarkets">Supermarkets</option>
+                                    <option value="HyperMarkets">HyperMarkets</option>
+                                    <option value="Boutiques">Boutiques</option>
+                                    <option value="Cosmetic Shops">Cosmetic
+                                        Shops</option>
+                                    <option value="Auto Driving Schools">Auto
+                                        Driving
+                                        Schools</option>
+                                    <option value="Schools">Schools</option>
+                                    <option value="Training Centre">Training
+                                        Centre</option>
+                                    <option value="Universities">Universities</option>
+                                </select>
+                                <div class="inputError" *ngIf="f.Category.errors?.required &&
+                                    formSubmit">
+                                    Category Required!
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">Type</label>
+                                <select class="form-control" formControlName="type">
+                                    <option value="">Choose Type</option>
+                                    <option value="Discount partners">Discount
+                                        Partners</option>
+                                    <option value="Distributor Partners">Distributor
+                                        Partners</option>
+                                    <option value="Payment Partners">Payment
+                                        Partners</option>
+                                    <option value="Ambassadors">Ambassadors</option>
+                                </select>
+                                <div class="inputError" *ngIf="f.address.errors?.required &&
+                                    formSubmit">
+                                    Type Required!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row m-0 pt-3">
+
+                            <div class="form-group col-md-3">
+                                <label for="inputEmail4">Percentage</label>
+                                <input type="text" class="form-control" formControlName="percentage" placeholder="">
+                                <div class="inputError" *ngIf="f.percentage.errors?.required &&
+                                    formSubmit">
+                                    Percentage Required!
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="inputEmail4">Priority</label>
+                                <input type="text" class="form-control" formControlName="priority" placeholder="">
+                                <div class="inputError" *ngIf="f.priority.errors?.required &&
+                                    formSubmit">
+                                    Priority Required!
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-md-6 p-0 pt-3">
+                            <button type="submit" class="btn btn-primary mr-2">Save</button>
+                            <button type="button" class="btn btn-default" mat-dialog-close>Cancel </button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>

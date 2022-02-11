@@ -39,6 +39,8 @@ import { SearchPipe } from './search.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { PartnersComponent } from './partners/partners.component';
+import { NewPartnerComponent } from './new-partner/new-partner.component';
 
 
 
@@ -68,6 +70,8 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     SearchPipe,
     ResetpasswordComponent,
     ForgotpasswordComponent,
+    PartnersComponent,
+    NewPartnerComponent,
 
   ],
   imports: [

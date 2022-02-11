@@ -11,6 +11,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GreenCardComponent } from './green-card/green-card.component';
 import { MerchantsComponent } from './merchants/merchants.component';
+import { PartnersComponent } from './partners/partners.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { WithdrawalRequestComponent } from './withdrawal-request/withdrawal-request.component';
@@ -26,6 +27,13 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: DashboardComponent }
+    ]
+  },
+  {
+    path: 'partners', component: LayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', component: PartnersComponent }
     ]
   },
   {
@@ -72,6 +80,7 @@ const routes: Routes = [
       { path: '', component: SettingsComponent }
     ]
   },
+
   {
     path: 'profile', component: LayoutComponent,
     children: [

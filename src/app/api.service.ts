@@ -51,6 +51,13 @@ export class apiService {
     headers = headers.append('Content-Type', 'application/json');
     return this.http.post(config.api_url + 'admin/addMerchant', params, { headers });
   }
+  createPartner(params): Observable<any> {
+    let token = this.cookieService.getCookie('token');
+    let headers = new HttpHeaders();
+    headers = headers.append('token', token);
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(config.api_url + 'admin/addParner', params, { headers });
+  }
 
   createOutlet(params): Observable<any> {
     let token = this.cookieService.getCookie('token');
@@ -67,6 +74,13 @@ export class apiService {
     headers = headers.append('Content-Type', 'application/json');
     return this.http.post(config.api_url + 'admin/getMerchants', params, { headers });
   }
+  getPartners(params): Observable<any> {
+    let token = this.cookieService.getCookie('token');
+    let headers = new HttpHeaders();
+    headers = headers.append('token', token);
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(config.api_url + 'admin/getPartners', params, { headers });
+  }
 
   deleteMerchant(params): Observable<any> {
     let token = this.cookieService.getCookie('token');
@@ -74,6 +88,13 @@ export class apiService {
     headers = headers.append('token', token);
     headers = headers.append('Content-Type', 'application/json');
     return this.http.post(config.api_url + 'admin/deleteMerchant', params, { headers });
+  }
+  deletePartners(params): Observable<any> {
+    let token = this.cookieService.getCookie('token');
+    let headers = new HttpHeaders();
+    headers = headers.append('token', token);
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(config.api_url + 'admin/deletePartners', params, { headers });
   }
 
   getOutlets(params): Observable<any> {
